@@ -60,6 +60,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -78,9 +80,26 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Model\GameTrackerModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GameTrackerModel.edmx</DependentUpon>
+      <LastGenOutput>GameTrackerModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\GameTrackerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GameTrackerModel.edmx</DependentUpon>
+      <LastGenOutput>GameTrackerModel.cs</LastGenOutput>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Site.Master" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <EntityDeploy Include="Model\GameTrackerModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GameTrackerModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\GameTrackerModel.edmx.diagram">
+      <DependentUpon>GameTrackerModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,6 +157,30 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Game.cs">
+      <DependentUpon>GameTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GameTrackerModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameTrackerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GameTrackerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GameTrackerModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameTrackerModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Team.cs">
+      <DependentUpon>GameTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>GameTrackerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">
       <DependentUpon>Jumbotron.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,6 +204,9 @@
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -172,7 +218,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2002</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
