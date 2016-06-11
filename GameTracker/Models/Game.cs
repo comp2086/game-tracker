@@ -7,18 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameTracker.Model
+namespace GameTracker.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Game
     {
         public int Id { get; set; }
-        public byte[] email { get; set; }
-        public string password { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public bool admin { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int FK_homeTeam { get; set; }
+        public int FK_awayTeam { get; set; }
+        public int awayTeamScore { get; set; }
+        public int homeTeamScore { get; set; }
+        public int numberOfSpectators { get; set; }
+        public string winningTeam { get; set; }
+    
+        public virtual Team Team { get; set; }
+        public virtual Team Team1 { get; set; }
     }
 }

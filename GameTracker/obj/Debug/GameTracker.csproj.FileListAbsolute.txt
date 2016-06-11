@@ -76,3 +76,4 @@ C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\obj\Debug\GameTracker.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\obj\Debug\COMP2007-S2016-Lesson3C.dll
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\obj\Debug\COMP2007-S2016-Lesson3C.pdb
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin\System.Linq.Dynamic.dll

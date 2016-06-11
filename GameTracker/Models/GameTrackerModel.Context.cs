@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameTracker.Model
+namespace GameTracker.Models
 {
     using System;
     using System.Data.Entity;
