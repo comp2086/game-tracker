@@ -13,13 +13,22 @@ namespace GameTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (GameTrackerModelConn db = new GameTrackerModelConn())
-            {
-                var teams = (from team in db.Teams
-                             select team.name);
+            setupDdlTeam(ddlAwayTeam);
+            setupDdlTeam(ddlHomeTeam);
+        }
 
-                ddlTeam.DataSource = teams.ToList();
+        private void setupDdlTeam(DropDownList ddl)
+        {
+            using (var db = new GameTrackerModelConn())
+            {
+                ddl.DataSource = (from team in db.Teams
+                                      orderby team.name
+                                      select new { team.Id, team.name }).ToList();
+                ddl.DataTextField = "name";
+                ddl.DataValueField = "Id";
+                ddl.DataBind();
             }
         }
+
     }
 }

@@ -13,12 +13,21 @@ namespace GameTracker {
     public partial class GameDetails {
         
         /// <summary>
-        /// ddlTeam control.
+        /// ddlHomeTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHomeTeam;
+        
+        /// <summary>
+        /// ddlAwayTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAwayTeam;
     }
 }
