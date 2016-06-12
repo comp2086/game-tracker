@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="description" Type="varchar(max)" Nullable="false" />
     <Property Name="FK_homeTeam" Type="int" Nullable="false" />
@@ -18,7 +18,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="description" Type="varchar(max)" />
   </EntityType>
@@ -33,7 +33,7 @@
     <Property Name="lastName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="admin" Type="bit" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Games__FK_awayTe__628FA481">
+  <Association Name="FK__Games__FK_awayTe__6A30C649">
     <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
     <End Role="Games" Type="Self.Games" Multiplicity="*" />
     <ReferentialConstraint>
@@ -45,7 +45,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Games__FK_homeTe__619B8048">
+  <Association Name="FK__Games__FK_homeTe__693CA210">
     <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
     <End Role="Games" Type="Self.Games" Multiplicity="*" />
     <ReferentialConstraint>
@@ -61,11 +61,11 @@
     <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Games__FK_awayTe__628FA481" Association="Self.FK__Games__FK_awayTe__628FA481">
+    <AssociationSet Name="FK__Games__FK_awayTe__6A30C649" Association="Self.FK__Games__FK_awayTe__6A30C649">
       <End Role="Teams" EntitySet="Teams" />
       <End Role="Games" EntitySet="Games" />
     </AssociationSet>
-    <AssociationSet Name="FK__Games__FK_homeTe__619B8048" Association="Self.FK__Games__FK_homeTe__619B8048">
+    <AssociationSet Name="FK__Games__FK_homeTe__693CA210" Association="Self.FK__Games__FK_homeTe__693CA210">
       <End Role="Teams" EntitySet="Teams" />
       <End Role="Games" EntitySet="Games" />
     </AssociationSet>

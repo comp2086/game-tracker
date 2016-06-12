@@ -13,10 +13,10 @@ namespace GameTracker.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GameTrackerModelConn : DbContext
+    public partial class DefaultConnection : DbContext
     {
-        public GameTrackerModelConn()
-            : base("name=GameTrackerModelConn")
+        public DefaultConnection()
+            : base("name=DefaultConnection")
         {
         }
     

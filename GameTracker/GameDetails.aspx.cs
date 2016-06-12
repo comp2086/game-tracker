@@ -20,7 +20,7 @@ namespace GameTracker
 
         private void setupDdlTeam(DropDownList ddl)
         {
-            using (var db = new GameTrackerModelConn())
+            using (var db = new DefaultConnection())
             {
                 ddl.DataSource = (from team in db.Teams
                                   orderby team.name
@@ -37,19 +37,30 @@ namespace GameTracker
             var team = new Team();
 
             // Home Team
-            team.Id = Convert.ToInt32(ddlHomeTeam.SelectedValue);
-            team.name = ddlHomeTeam.SelectedItem.Text;
-            selectedDdlValues.Add(team);
+            if (!String.IsNullOrEmpty(ddlHomeTeam.SelectedValue))
+            {
+                team.Id = Convert.ToInt32(ddlHomeTeam.SelectedValue);
+                team.name = ddlHomeTeam.SelectedItem.Text;
+                selectedDdlValues.Add(team);
+            }
 
             // Away Team
-            team.Id = Convert.ToInt32(ddlAwayTeam.SelectedValue);
-            team.name = ddlHomeTeam.SelectedItem.Text;
-            selectedDdlValues.Add(team);
+            if (!String.IsNullOrEmpty(ddlAwayTeam.SelectedValue))
+            {
+                team.Id = Convert.ToInt32(ddlAwayTeam.SelectedValue);
+                team.name = ddlHomeTeam.SelectedItem.Text;
+                selectedDdlValues.Add(team);
+            }    
 
             ddlWinningTeam.DataSource = selectedDdlValues;
             ddlWinningTeam.DataTextField = "name";
             ddlWinningTeam.DataValueField = "Id";
             ddlWinningTeam.DataBind();
+        }
+
+        protected void ddlHomeTeam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setupDdlWinningTeam();
         }
     }
 }

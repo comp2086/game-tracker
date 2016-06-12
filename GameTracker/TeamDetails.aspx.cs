@@ -27,7 +27,7 @@ namespace GameTracker
             var teamDescription = txtTeamDescription.Text;
 
             // Add a new team
-            using (var db = new GameTrackerModelConn())
+            using (var db = new DefaultConnection())
             {
                 Team team = new Team();
                 team.name = teamName;
@@ -39,7 +39,7 @@ namespace GameTracker
                     db.SaveChanges();
                     // Display a success message
                 }
-                catch
+                catch (Exception ex)
                 {
                     // Displayy an error message
                 }

@@ -15,11 +15,11 @@
                 </div>
                 <div class="form-group">
                     <label for="ddlHomeTeam" class="control-label">Home Team: </label>
-                    <asp:DropDownList ID="ddlHomeTeam" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlHomeTeam" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlHomeTeam_SelectedIndexChanged"></asp:DropDownList>
                 </div>
                 <div class="form-group">
                     <label for="ddlAwayTeam" class="control-label">Away Team: </label>
-                    <asp:DropDownList ID="ddlAwayTeam" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlAwayTeam" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlHomeTeam_SelectedIndexChanged"></asp:DropDownList>
                 </div>
                 <div class="form-group">
                     <label for="txtHomeTeamScore" class="control-label">Home Team Score: </label>
