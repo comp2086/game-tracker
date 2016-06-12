@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameTracker.Model
+namespace GameTracker.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GameTrackerModelConn : DbContext
+    public partial class GameTrackerConn : DbContext
     {
-        public GameTrackerModelConn()
-            : base("name=GameTrackerModelConn")
+        public GameTrackerConn()
+            : base("name=GameTrackerConn")
         {
         }
     

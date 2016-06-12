@@ -10,42 +10,42 @@
 namespace GameTracker {
     
     
-    public partial class Navbar {
+    public partial class TeamDetails {
         
         /// <summary>
-        /// home control.
+        /// txtTeamName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl home;
+        protected global::System.Web.UI.WebControls.TextBox txtTeamName;
         
         /// <summary>
-        /// teamDetails control.
+        /// txtTeamDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamDetails;
+        protected global::System.Web.UI.WebControls.TextBox txtTeamDescription;
         
         /// <summary>
-        /// gameDetails control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gameDetails;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// contact control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contact;
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }

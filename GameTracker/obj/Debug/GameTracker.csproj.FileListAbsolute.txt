@@ -70,9 +70,9 @@ C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin\EntityFramework.dll
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin\EntityFramework.SqlServer.dll
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin\System.Linq.Dynamic.dll
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin\EntityFramework.xml
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin\EntityFramework.SqlServer.xml
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\obj\Debug\GameTracker.csprojResolveAssemblyReference.cache
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\obj\Debug\COMP2007-S2016-Lesson3C.dll
 C:\Users\Alex\Documents\Visual Studio 2015\Projects\game-tracker\GameTracker\obj\Debug\COMP2007-S2016-Lesson3C.pdb

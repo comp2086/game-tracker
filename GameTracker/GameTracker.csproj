@@ -60,6 +60,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.5840.25917, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.6\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -80,12 +84,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\GameTrackerModel.Context.tt">
+    <Content Include="GameDetails.aspx" />
+    <Content Include="Models\GameTrackerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
       <LastGenOutput>GameTrackerModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\GameTrackerModel.tt">
+    <Content Include="Models\GameTrackerModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
       <LastGenOutput>GameTrackerModel.cs</LastGenOutput>
@@ -93,11 +98,11 @@
     <Content Include="packages.config" />
     <Content Include="Site.Master" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
-    <EntityDeploy Include="Model\GameTrackerModel.edmx">
+    <EntityDeploy Include="Models\GameTrackerModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GameTrackerModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Model\GameTrackerModel.edmx.diagram">
+    <Content Include="Models\GameTrackerModel.edmx.diagram">
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
@@ -127,6 +132,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="TeamDetails.aspx" />
     <Content Include="User_Controls\Jumbotron.ascx" />
     <Content Include="User_Controls\Navbar.ascx" />
     <Content Include="Scripts\app.js" />
@@ -157,29 +163,43 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Game.cs">
+    <Compile Include="GameDetails.aspx.cs">
+      <DependentUpon>GameDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GameDetails.aspx.designer.cs">
+      <DependentUpon>GameDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Game.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\GameTrackerModel.Context.cs">
+    <Compile Include="Models\GameTrackerModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameTrackerModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\GameTrackerModel.cs">
+    <Compile Include="Models\GameTrackerModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\GameTrackerModel.Designer.cs">
+    <Compile Include="Models\GameTrackerModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Team.cs">
+    <Compile Include="Models\Team.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\User.cs">
+    <Compile Include="Models\User.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamDetails.aspx.cs">
+      <DependentUpon>TeamDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeamDetails.aspx.designer.cs">
+      <DependentUpon>TeamDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">
       <DependentUpon>Jumbotron.ascx</DependentUpon>
