@@ -23,7 +23,7 @@ namespace GameTracker
 
         private void setupDdlTeam(DropDownList ddl)
         {
-            using (var db = new DefaultConnection())
+            using (var db = new GameTrackerConn())
             {
                 ddl.DataSource = (from team in db.Teams
                                   orderby team.name
@@ -55,6 +55,38 @@ namespace GameTracker
         protected void ddlHomeTeam_SelectedIndexChanged(object sender, EventArgs e)
         {
             setupDdlWinningTeam();
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            Game game = new Game();
+            game.name = txtGameName.Text;
+            game.description = txtGameName.Text;
+            game.FK_homeTeam = Convert.ToInt32(ddlHomeTeam.SelectedValue);
+            game.FK_awayTeam = Convert.ToInt32(ddlAwayTeam.SelectedValue);
+            game.homeTeamScore = Convert.ToInt32(txtHomeTeamScore.Text);
+            game.awayTeamScore = Convert.ToInt32(txtAwayTeamScore.Text);
+            game.numberOfSpectators = Convert.ToInt32(txtNumberOfSpectators.Text);
+            game.FK_winningTeam = Convert.ToInt32(ddlWinningTeam.SelectedValue);
+
+            using (var db = new GameTrackerConn())
+            {
+                try
+                {
+                    db.Games.Add(game);
+                    db.SaveChanges();
+                    // Display a success message
+                }
+                catch (Exception ex)
+                {
+                    // Displayy an error message
+                }
+            }
         }
     }
 }

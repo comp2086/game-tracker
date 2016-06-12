@@ -19,6 +19,7 @@ namespace GameTracker.Models
         {
             this.Games = new HashSet<Game>();
             this.Games1 = new HashSet<Game>();
+            this.Games2 = new HashSet<Game>();
         }
     
         public int Id { get; set; }
@@ -29,5 +30,7 @@ namespace GameTracker.Models
         public virtual ICollection<Game> Games { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Game> Games1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Game> Games2 { get; set; }
     }
 }

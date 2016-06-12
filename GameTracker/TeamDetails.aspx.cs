@@ -23,16 +23,13 @@ namespace GameTracker
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            var teamName = txtTeamName.Text;
-            var teamDescription = txtTeamDescription.Text;
+            Team team = new Team();
+            team.name = txtTeamName.Text;
+            team.description = txtTeamDescription.Text;
 
             // Add a new team
-            using (var db = new DefaultConnection())
+            using (var db = new GameTrackerConn())
             {
-                Team team = new Team();
-                team.name = teamName;
-                team.description = teamDescription;
-
                 try
                 {
                     db.Teams.Add(team);

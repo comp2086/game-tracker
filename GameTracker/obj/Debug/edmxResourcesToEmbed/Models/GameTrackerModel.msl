@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="DefaultConnection">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="GameTrackerConn">
     <EntitySetMapping Name="Games">
       <EntityTypeMapping TypeName="Models.Game">
         <MappingFragment StoreEntitySet="Games">
@@ -12,7 +12,7 @@
           <ScalarProperty Name="awayTeamScore" ColumnName="awayTeamScore" />
           <ScalarProperty Name="homeTeamScore" ColumnName="homeTeamScore" />
           <ScalarProperty Name="numberOfSpectators" ColumnName="numberOfSpectators" />
-          <ScalarProperty Name="winningTeam" ColumnName="winningTeam" />
+          <ScalarProperty Name="FK_winningTeam" ColumnName="FK_winningTeam" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

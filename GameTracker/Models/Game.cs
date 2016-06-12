@@ -22,9 +22,10 @@ namespace GameTracker.Models
         public int awayTeamScore { get; set; }
         public int homeTeamScore { get; set; }
         public int numberOfSpectators { get; set; }
-        public string winningTeam { get; set; }
+        public int FK_winningTeam { get; set; }
     
         public virtual Team Team { get; set; }
         public virtual Team Team1 { get; set; }
+        public virtual Team Team2 { get; set; }
     }
 }

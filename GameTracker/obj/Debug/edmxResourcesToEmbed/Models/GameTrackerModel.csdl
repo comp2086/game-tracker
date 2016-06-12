@@ -12,9 +12,10 @@
     <Property Name="awayTeamScore" Type="Int32" Nullable="false" />
     <Property Name="homeTeamScore" Type="Int32" Nullable="false" />
     <Property Name="numberOfSpectators" Type="Int32" Nullable="false" />
-    <Property Name="winningTeam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FK_winningTeam" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Team" Relationship="Self.FK__Games__FK_awayTe__6A30C649" FromRole="Games" ToRole="Teams" />
     <NavigationProperty Name="Team1" Relationship="Self.FK__Games__FK_homeTe__693CA210" FromRole="Games" ToRole="Teams" />
+    <NavigationProperty Name="Team2" Relationship="Self.FK__Games__FK_winnin__6B24EA82" FromRole="Games" ToRole="Teams" />
   </EntityType>
   <EntityType Name="Team">
     <Key>
@@ -25,6 +26,7 @@
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Games" Relationship="Self.FK__Games__FK_awayTe__6A30C649" FromRole="Teams" ToRole="Games" />
     <NavigationProperty Name="Games1" Relationship="Self.FK__Games__FK_homeTe__693CA210" FromRole="Teams" ToRole="Games" />
+    <NavigationProperty Name="Games2" Relationship="Self.FK__Games__FK_winnin__6B24EA82" FromRole="Teams" ToRole="Games" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -61,7 +63,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DefaultConnection" annotation:LazyLoadingEnabled="true">
+  <Association Name="FK__Games__FK_winnin__6B24EA82">
+    <End Role="Teams" Type="Self.Team" Multiplicity="1" />
+    <End Role="Games" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="FK_winningTeam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GameTrackerConn" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Games" EntityType="Self.Game" />
     <EntitySet Name="Teams" EntityType="Self.Team" />
     <EntitySet Name="Users" EntityType="Self.User" />
@@ -70,6 +84,10 @@
       <End Role="Games" EntitySet="Games" />
     </AssociationSet>
     <AssociationSet Name="FK__Games__FK_homeTe__693CA210" Association="Self.FK__Games__FK_homeTe__693CA210">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Games" EntitySet="Games" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Games__FK_winnin__6B24EA82" Association="Self.FK__Games__FK_winnin__6B24EA82">
       <End Role="Teams" EntitySet="Teams" />
       <End Role="Games" EntitySet="Games" />
     </AssociationSet>
