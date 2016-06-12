@@ -13,9 +13,12 @@ namespace GameTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            setupDdlTeam(ddlAwayTeam);
-            setupDdlTeam(ddlHomeTeam);
-            setupDdlWinningTeam();
+            if (!IsPostBack)
+            {
+                setupDdlTeam(ddlAwayTeam);
+                setupDdlTeam(ddlHomeTeam);
+                setupDdlWinningTeam();
+            }      
         }
 
         private void setupDdlTeam(DropDownList ddl)
@@ -33,29 +36,20 @@ namespace GameTracker
 
         private void setupDdlWinningTeam()
         {
-            var selectedDdlValues = new List<Team>();
-            var team = new Team();
+            // Clear all previous items
+            ddlWinningTeam.Items.Clear();
 
             // Home Team
             if (!String.IsNullOrEmpty(ddlHomeTeam.SelectedValue))
             {
-                team.Id = Convert.ToInt32(ddlHomeTeam.SelectedValue);
-                team.name = ddlHomeTeam.SelectedItem.Text;
-                selectedDdlValues.Add(team);
+                ddlWinningTeam.Items.Add(new ListItem(ddlHomeTeam.SelectedItem.Text, ddlHomeTeam.SelectedValue));
             }
 
             // Away Team
             if (!String.IsNullOrEmpty(ddlAwayTeam.SelectedValue))
             {
-                team.Id = Convert.ToInt32(ddlAwayTeam.SelectedValue);
-                team.name = ddlHomeTeam.SelectedItem.Text;
-                selectedDdlValues.Add(team);
-            }    
-
-            ddlWinningTeam.DataSource = selectedDdlValues;
-            ddlWinningTeam.DataTextField = "name";
-            ddlWinningTeam.DataValueField = "Id";
-            ddlWinningTeam.DataBind();
+                ddlWinningTeam.Items.Add(new ListItem(ddlAwayTeam.SelectedItem.Text, ddlAwayTeam.SelectedValue));
+            }
         }
 
         protected void ddlHomeTeam_SelectedIndexChanged(object sender, EventArgs e)
