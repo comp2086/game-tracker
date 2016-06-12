@@ -16,6 +16,7 @@
     <NavigationProperty Name="Team" Relationship="Self.FK__Games__FK_awayTe__6A30C649" FromRole="Games" ToRole="Teams" />
     <NavigationProperty Name="Team1" Relationship="Self.FK__Games__FK_homeTe__693CA210" FromRole="Games" ToRole="Teams" />
     <NavigationProperty Name="Team2" Relationship="Self.FK__Games__FK_winnin__6B24EA82" FromRole="Games" ToRole="Teams" />
+    <Property Name="gameDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Team">
     <Key>

@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameDetails.aspx" />
+    <Content Include="Games.aspx" />
     <Content Include="Models\GameTrackerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GameTrackerModel.edmx</DependentUpon>
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="GameDetails.aspx.designer.cs">
       <DependentUpon>GameDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Games.aspx.cs">
+      <DependentUpon>Games.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Games.aspx.designer.cs">
+      <DependentUpon>Games.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Game.cs">
       <DependentUpon>GameTrackerModel.tt</DependentUpon>

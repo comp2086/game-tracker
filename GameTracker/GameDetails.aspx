@@ -41,6 +41,10 @@
                     <label for="ddlWinningTeam" class="control-label">Winning Team: </label>
                     <asp:DropDownList ID="ddlWinningTeam" CssClass="form-control" runat="server"></asp:DropDownList>
                 </div>
+                <div class="form-group">
+                    <label for="txtGameDate" class="control-label">Game Date: </label>
+                    <asp:TextBox ID="txtGameDate" CssClass="form-control" runat="server" placeholder="dd/mm/yyyy"></asp:TextBox>
+                </div>
                 <div class="text-right">
                     <asp:Button Text="Cancel" ID="btnCancel" CssClass="btn btn-warning btn-lg" runat="server"
                         UseSubmitBehavior="false" CausesValidation="false" OnClick="btnCancel_Click" />

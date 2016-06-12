@@ -10,51 +10,42 @@
 namespace GameTracker {
     
     
-    public partial class Navbar {
+    public partial class Games {
         
         /// <summary>
-        /// home control.
+        /// txtGameOneHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl home;
+        protected global::System.Web.UI.WebControls.Label txtGameOneHeading;
         
         /// <summary>
-        /// games control.
+        /// txtGameOneDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl games;
+        protected global::System.Web.UI.WebControls.Label txtGameOneDescription;
         
         /// <summary>
-        /// teamDetails control.
+        /// txtGameTwoHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamDetails;
+        protected global::System.Web.UI.WebControls.Label txtGameTwoHeading;
         
         /// <summary>
-        /// gameDetails control.
+        /// txtGameTwoDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gameDetails;
-        
-        /// <summary>
-        /// contact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contact;
+        protected global::System.Web.UI.WebControls.Label txtGameTwoDescription;
     }
 }

@@ -85,6 +85,15 @@ namespace GameTracker {
         protected global::System.Web.UI.WebControls.DropDownList ddlWinningTeam;
         
         /// <summary>
+        /// txtGameDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGameDate;
+        
+        /// <summary>
         /// btnCancel control.
         /// </summary>
         /// <remarks>

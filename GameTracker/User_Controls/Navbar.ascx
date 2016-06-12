@@ -20,6 +20,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li id="home" runat="server"><a href="Default.aspx"><i class="fa fa-home fa-lg"></i> Home</a></li>
+                <li id="games" runat="server"><a href="Games.aspx"><i class="fa fa-trophy fa-lg"></i> Games</a></li>
                 <li id="teamDetails" runat="server"><a href="TeamDetails.aspx"><i class="fa fa-home fa-lg"></i> New Team</a></li>
                 <li id="gameDetails" runat="server"><a href="GameDetails.aspx"><i class="fa fa-home fa-lg"></i> New Game</a></li>
                 <li id="contact" runat="server"><a href="Contact.aspx"><i class="fa fa-phone fa-lg"></i> Contact</a></li>

@@ -38,6 +38,9 @@ namespace GameTracker
                 case "Contact":
                     contact.Attributes.Add("class", "active");
                     break;
+                case "Games":
+                    games.Attributes.Add("class", "active");
+                    break;
             }
         }
     }
