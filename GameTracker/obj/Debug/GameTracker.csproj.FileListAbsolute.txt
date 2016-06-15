@@ -74,6 +74,6 @@ C:\Users\anthony\Desktop\Enterprise Computing\Game Tracker\GameTracker\GameTrack
 C:\Users\anthony\Desktop\Enterprise Computing\Game Tracker\GameTracker\GameTracker\bin\EntityFramework.xml
 C:\Users\anthony\Desktop\Enterprise Computing\Game Tracker\GameTracker\GameTracker\bin\EntityFramework.SqlServer.xml
 C:\Users\anthony\Desktop\Enterprise Computing\Game Tracker\GameTracker\GameTracker\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\anthony\Desktop\Enterprise Computing\Game Tracker\GameTracker\GameTracker\obj\Debug\GameTracker.csprojResolveAssemblyReference.cache
 C:\Users\anthony\Desktop\Enterprise Computing\Game Tracker\GameTracker\GameTracker\obj\Debug\COMP2007-S2016-Lesson3C.dll
 C:\Users\anthony\Desktop\Enterprise Computing\Game Tracker\GameTracker\GameTracker\obj\Debug\COMP2007-S2016-Lesson3C.pdb
+C:\Users\anthony\Desktop\Enterprise Computing\Game Tracker\GameTracker\GameTracker\obj\Debug\GameTracker.csprojResolveAssemblyReference.cache

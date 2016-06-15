@@ -41,6 +41,12 @@ namespace GameTracker
                 case "Games":
                     games.Attributes.Add("class", "active");
                     break;
+                case "Game Details":
+                    gameDetails.Attributes.Add("class", "active");
+                    break;
+                case "Team Details":
+                    teamDetails.Attributes.Add("class", "active");
+                    break;
             }
         }
     }

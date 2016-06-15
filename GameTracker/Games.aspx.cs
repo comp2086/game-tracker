@@ -29,7 +29,7 @@ namespace GameTracker
                 //stores the games we want to display
                 List<Game> gamesToDisplay = new List<Game>();
                 List<Team> teamsToDisplay = new List<Team>();
-
+                
                 foreach (Game game in games)
                 {
 
@@ -45,16 +45,15 @@ namespace GameTracker
                     teamsToDisplay.Add(teamAway);
                     gamesToDisplay.Add(game);
 
-                    /**
+                    
                     if (DateTime.Compare(Convert.ToDateTime(game.gameDate), DateTime.Now) > 0 &&
                          DateTime.Compare(Convert.ToDateTime(game.gameDate), dateMinusAWeek) < 0)
                     {
-                        gamesToDisplay.Add(game);
+                        gamesToDisplay.Add(game); 
+                        
                     }
-                    */
-
                 }
-
+            
                 txtGameOneHeading.Text = teamsToDisplay[0].name.ToString() + " : "
                                               + gamesToDisplay[0].homeTeamScore.ToString() + " | "
                                               + gamesToDisplay[0].awayTeamScore.ToString() + " : "
@@ -70,17 +69,21 @@ namespace GameTracker
 
                 txtGameTwoDescription.Text = gamesToDisplay[1].description.ToString();
 
-                /**
+          
                 txtGameThreeHeading.Text = teamsToDisplay[4].name.ToString() + " : "
                                               + gamesToDisplay[2].homeTeamScore.ToString() + " | "
                                               + gamesToDisplay[2].awayTeamScore.ToString() + " : "
                                               + teamsToDisplay[5].name.ToString();
+
+                txtGameThreeDescription.Text = gamesToDisplay[2].description.ToString();
                 
                 txtGameFourHeading.Text = teamsToDisplay[6].name.ToString() + " : "
                                               + gamesToDisplay[3].homeTeamScore.ToString() + " | "
                                               + gamesToDisplay[3].awayTeamScore.ToString() + " : "
                                               + teamsToDisplay[7].name.ToString();
-                */
+
+                txtGameFourDescription.Text = gamesToDisplay[3].description.ToString();
+                
             }
 
         }

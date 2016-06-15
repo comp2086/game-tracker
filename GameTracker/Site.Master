@@ -24,8 +24,7 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
-
-    <!-- JavaScript -->
+      <!-- JavaScript -->
     <script src="Scripts/jquery-2.2.3.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/app.js"></script>

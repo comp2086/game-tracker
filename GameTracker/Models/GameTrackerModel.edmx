@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Games">
           <Key>
             <PropertyRef Name="Id" />
@@ -18,7 +18,7 @@
           <Property Name="homeTeamScore" Type="int" Nullable="false" />
           <Property Name="numberOfSpectators" Type="int" Nullable="false" />
           <Property Name="FK_winningTeam" Type="int" Nullable="false" />
-          <Property Name="gameDate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gameDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Teams">
           <Key>
@@ -92,7 +92,8 @@
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -109,10 +110,10 @@
           <Property Name="homeTeamScore" Type="Int32" Nullable="false" />
           <Property Name="numberOfSpectators" Type="Int32" Nullable="false" />
           <Property Name="FK_winningTeam" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Team" Relationship="Self.FK__Games__FK_awayTe__6A30C649" FromRole="Games" ToRole="Teams" />
-          <NavigationProperty Name="Team1" Relationship="Self.FK__Games__FK_homeTe__693CA210" FromRole="Games" ToRole="Teams" />
-          <NavigationProperty Name="Team2" Relationship="Self.FK__Games__FK_winnin__6B24EA82" FromRole="Games" ToRole="Teams" />
-          <Property Name="gameDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gameDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Team" Relationship="Self.FK__Games__FK_awayTe__6EF57B66" FromRole="Games" ToRole="Teams" />
+          <NavigationProperty Name="Team1" Relationship="Self.FK__Games__FK_homeTe__6E01572D" FromRole="Games" ToRole="Teams" />
+          <NavigationProperty Name="Team2" Relationship="Self.FK__Games__FK_winnin__6FE99F9F" FromRole="Games" ToRole="Teams" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
@@ -121,9 +122,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Games" Relationship="Self.FK__Games__FK_awayTe__6A30C649" FromRole="Teams" ToRole="Games" />
-          <NavigationProperty Name="Games1" Relationship="Self.FK__Games__FK_homeTe__693CA210" FromRole="Teams" ToRole="Games" />
-          <NavigationProperty Name="Games2" Relationship="Self.FK__Games__FK_winnin__6B24EA82" FromRole="Teams" ToRole="Games" />
+          <NavigationProperty Name="Games" Relationship="Self.FK__Games__FK_awayTe__6EF57B66" FromRole="Teams" ToRole="Games" />
+          <NavigationProperty Name="Games1" Relationship="Self.FK__Games__FK_homeTe__6E01572D" FromRole="Teams" ToRole="Games" />
+          <NavigationProperty Name="Games2" Relationship="Self.FK__Games__FK_winnin__6FE99F9F" FromRole="Teams" ToRole="Games" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -136,7 +137,7 @@
           <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="admin" Type="Boolean" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Games__FK_awayTe__6A30C649">
+        <Association Name="FK__Games__FK_awayTe__6EF57B66">
           <End Role="Teams" Type="Self.Team" Multiplicity="1" />
           <End Role="Games" Type="Self.Game" Multiplicity="*" />
           <ReferentialConstraint>
@@ -148,7 +149,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Games__FK_homeTe__693CA210">
+        <Association Name="FK__Games__FK_homeTe__6E01572D">
           <End Role="Teams" Type="Self.Team" Multiplicity="1" />
           <End Role="Games" Type="Self.Game" Multiplicity="*" />
           <ReferentialConstraint>
@@ -160,7 +161,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Games__FK_winnin__6B24EA82">
+        <Association Name="FK__Games__FK_winnin__6FE99F9F">
           <End Role="Teams" Type="Self.Team" Multiplicity="1" />
           <End Role="Games" Type="Self.Game" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,15 +177,15 @@
           <EntitySet Name="Games" EntityType="Self.Game" />
           <EntitySet Name="Teams" EntityType="Self.Team" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__Games__FK_awayTe__6A30C649" Association="Self.FK__Games__FK_awayTe__6A30C649">
+          <AssociationSet Name="FK__Games__FK_awayTe__6EF57B66" Association="Self.FK__Games__FK_awayTe__6EF57B66">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK__Games__FK_homeTe__693CA210" Association="Self.FK__Games__FK_homeTe__693CA210">
+          <AssociationSet Name="FK__Games__FK_homeTe__6E01572D" Association="Self.FK__Games__FK_homeTe__6E01572D">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
-          <AssociationSet Name="FK__Games__FK_winnin__6B24EA82" Association="Self.FK__Games__FK_winnin__6B24EA82">
+          <AssociationSet Name="FK__Games__FK_winnin__6FE99F9F" Association="Self.FK__Games__FK_winnin__6FE99F9F">
             <End Role="Teams" EntitySet="Teams" />
             <End Role="Games" EntitySet="Games" />
           </AssociationSet>
@@ -198,7 +199,6 @@
           <EntitySetMapping Name="Games">
             <EntityTypeMapping TypeName="Models.Game">
               <MappingFragment StoreEntitySet="Games">
-                <ScalarProperty Name="gameDate" ColumnName="gameDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />
@@ -208,6 +208,7 @@
                 <ScalarProperty Name="homeTeamScore" ColumnName="homeTeamScore" />
                 <ScalarProperty Name="numberOfSpectators" ColumnName="numberOfSpectators" />
                 <ScalarProperty Name="FK_winningTeam" ColumnName="FK_winningTeam" />
+                <ScalarProperty Name="gameDate" ColumnName="gameDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

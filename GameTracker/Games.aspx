@@ -30,7 +30,35 @@
         <asp:Label ID="txtGameTwoDescription" runat="server"></asp:Label>
       </div>
     </div>
-  </div>    
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <asp:Label ID="txtGameThreeHeading" runat="server"></asp:Label>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <asp:Label ID="txtGameThreeDescription" runat="server"></asp:Label>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <asp:Label ID="txtGameFourHeading" runat="server"></asp:Label>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <asp:Label ID="txtGameFourDescription" runat="server"></asp:Label>
+      </div>
+    </div>
+  </div>        
 </div>
 </div>
 </asp:Content>

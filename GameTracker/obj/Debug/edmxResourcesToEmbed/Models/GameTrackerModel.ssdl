@@ -13,7 +13,7 @@
     <Property Name="homeTeamScore" Type="int" Nullable="false" />
     <Property Name="numberOfSpectators" Type="int" Nullable="false" />
     <Property Name="FK_winningTeam" Type="int" Nullable="false" />
-    <Property Name="gameDate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="gameDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Teams">
     <Key>
