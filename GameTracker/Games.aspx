@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="Games" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Games.aspx.cs" Inherits="GameTracker.Games" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+     <!--
+        Game Tracker
+        By: Anthony Scinocco & Alex Andriisyn
+        Games Page
+        http://asp-game-tracker.azurewebsites.net/Games.aspx
+        -->
     <div class="container">
         <h1 class="text-center">Games</h1>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">

@@ -10,11 +10,21 @@ namespace GameTracker
 {
     public partial class Games : System.Web.UI.Page
     {
+        /**
+         * Handles the page load event
+         * 
+         * return {void}
+         */ 
         protected void Page_Load(object sender, EventArgs e)
         {
             GetMostRecentGames();
         }
 
+        /**
+         * Gets the most recent games
+         * 
+         * return {void}
+         */ 
         private void GetMostRecentGames()
         {
             using (var db = new GameTrackerConn())
@@ -26,26 +36,31 @@ namespace GameTracker
 
                 var games = (from game in db.Games
                              select game).ToList();
+                
                 //stores the games we want to display
                 List<Game> gamesToDisplay = new List<Game>();
                 List<Team> teamsToDisplay = new List<Team>();
                 
+                //iterates through game data
                 foreach (Game game in games)
                 {
-
+                    //gets associated home team
                     var teamHome = (from team in db.Teams
                                     where game.FK_homeTeam == team.Id
                                     select team).FirstOrDefault();
 
+                    //gets associated away team
                     var teamAway = (from team in db.Teams
                                     where game.FK_awayTeam == team.Id
                                     select team).FirstOrDefault();
 
+                    //stores data in lists
                     teamsToDisplay.Add(teamHome);
                     teamsToDisplay.Add(teamAway);
                     gamesToDisplay.Add(game);
 
                     
+                    //checks if games were played in the current week 
                     if (DateTime.Compare(Convert.ToDateTime(game.gameDate), DateTime.Now) > 0 &&
                          DateTime.Compare(Convert.ToDateTime(game.gameDate), dateMinusAWeek) < 0)
                     {
@@ -54,6 +69,7 @@ namespace GameTracker
                     }
                 }
             
+                //output game data
                 txtGameOneHeading.Text = teamsToDisplay[0].name.ToString() + " : "
                                               + gamesToDisplay[0].homeTeamScore.ToString() + " | "
                                               + gamesToDisplay[0].awayTeamScore.ToString() + " : "
