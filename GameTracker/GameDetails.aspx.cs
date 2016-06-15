@@ -1,4 +1,11 @@
-﻿using System;
+﻿/**
+ * Game Tracker
+ * By: Anthony Scinocco & Alex Andriishyn
+ * GameDetails Page Code Behind file
+ * http://asp-game-tracker.azurewebsites.net/GameDetails.aspx
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
@@ -18,9 +25,18 @@ namespace GameTracker
                 setupDdlTeam(ddlAwayTeam);
                 setupDdlTeam(ddlHomeTeam);
                 setupDdlWinningTeam();
-            }      
+            }
         }
 
+        /**
+         * <summary>
+         * This assigns a datasource to a dropdown list
+         * </summary>
+         * 
+         * @method setupDdlTeam
+         * @param {DropDownList} ddl
+         * @returns {void}
+         */
         private void setupDdlTeam(DropDownList ddl)
         {
             using (var db = new GameTrackerConn())
@@ -34,6 +50,15 @@ namespace GameTracker
             }
         }
 
+        /**
+         * <summary>
+         * This methods populates the ddlWinningTeam dropdown list
+         * according to the selections made in home/away team dropdown lists
+         * </summary>
+         * 
+         * @method setupDdlWinningTeam
+         * @returns {void}
+         */
         private void setupDdlWinningTeam()
         {
             // Clear all previous items
@@ -52,7 +77,17 @@ namespace GameTracker
             }
         }
 
-        protected void ddlHomeTeam_SelectedIndexChanged(object sender, EventArgs e)
+        /**
+         * <summary>
+         * Event handler, triggers on change of the selected value in home/away team dropdown list
+         * </summary>
+         * 
+         * @method homeAwayTeam_SelectedIndexChanged
+         * @param {object} sender
+         * @param {EventArgs} e
+         * @returns {void}
+         */
+        protected void homeAwayTeam_SelectedIndexChanged(object sender, EventArgs e)
         {
             setupDdlWinningTeam();
         }
@@ -62,6 +97,16 @@ namespace GameTracker
             Response.Redirect("Default.aspx");
         }
 
+        /**
+        * <summary>
+        * Event handler, saves a new game to the database on save button click
+        * </summary>
+        * 
+        * @method btnSave_Click
+        * @param {object} sender
+        * @param {EventArgs} e
+        * @returns {void}
+        */
         protected void btnSave_Click(object sender, EventArgs e)
         {
             Game game = new Game();
