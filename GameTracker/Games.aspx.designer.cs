@@ -10,105 +10,78 @@
 namespace GameTracker {
     
     
-    public partial class GameDetails {
+    public partial class Games {
         
         /// <summary>
-        /// txtGameName control.
+        /// txtGameOneHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGameName;
+        protected global::System.Web.UI.WebControls.Label txtGameOneHeading;
         
         /// <summary>
-        /// txtGameDescription control.
+        /// txtGameOneDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGameDescription;
+        protected global::System.Web.UI.WebControls.Label txtGameOneDescription;
         
         /// <summary>
-        /// ddlHomeTeam control.
+        /// txtGameTwoHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHomeTeam;
+        protected global::System.Web.UI.WebControls.Label txtGameTwoHeading;
         
         /// <summary>
-        /// ddlAwayTeam control.
+        /// txtGameTwoDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAwayTeam;
+        protected global::System.Web.UI.WebControls.Label txtGameTwoDescription;
         
         /// <summary>
-        /// txtHomeTeamScore control.
+        /// txtGameThreeHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHomeTeamScore;
+        protected global::System.Web.UI.WebControls.Label txtGameThreeHeading;
         
         /// <summary>
-        /// txtAwayTeamScore control.
+        /// txtGameThreeDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAwayTeamScore;
+        protected global::System.Web.UI.WebControls.Label txtGameThreeDescription;
         
         /// <summary>
-        /// txtNumberOfSpectators control.
+        /// txtGameFourHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumberOfSpectators;
+        protected global::System.Web.UI.WebControls.Label txtGameFourHeading;
         
         /// <summary>
-        /// ddlWinningTeam control.
+        /// txtGameFourDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlWinningTeam;
-        
-        /// <summary>
-        /// txtGameDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGameDate;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Label txtGameFourDescription;
     }
 }

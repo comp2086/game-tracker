@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="GameDetails.aspx.cs" Inherits="GameTracker.GameDetails" %>
+﻿<%@ Page Title="Game Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="GameDetails.aspx.cs" Inherits="GameTracker.GameDetails" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
@@ -40,6 +40,11 @@
                 <div class="form-group">
                     <label for="ddlWinningTeam" class="control-label">Winning Team: </label>
                     <asp:DropDownList ID="ddlWinningTeam" CssClass="form-control" runat="server"></asp:DropDownList>
+                </div>
+                <div class="form-group">
+                    <label for="txtGameDate" class="control-label">Game Date: </label>
+                    <asp:TextBox ID="txtGameDate" CssClass="form-control" runat="server" placeholder="mm/dd/yyyy"></asp:TextBox>
+                    
                 </div>
                 <div class="text-right">
                     <asp:Button Text="Cancel" ID="btnCancel" CssClass="btn btn-warning btn-lg" runat="server"

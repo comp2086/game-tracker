@@ -23,6 +23,7 @@ namespace GameTracker.Models
         public int homeTeamScore { get; set; }
         public int numberOfSpectators { get; set; }
         public int FK_winningTeam { get; set; }
+        public System.DateTime gameDate { get; set; }
     
         public virtual Team Team { get; set; }
         public virtual Team Team1 { get; set; }

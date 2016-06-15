@@ -73,6 +73,7 @@ namespace GameTracker
             game.awayTeamScore = Convert.ToInt32(txtAwayTeamScore.Text);
             game.numberOfSpectators = Convert.ToInt32(txtNumberOfSpectators.Text);
             game.FK_winningTeam = Convert.ToInt32(ddlWinningTeam.SelectedValue);
+            game.gameDate = Convert.ToDateTime(txtGameDate.Text);
 
             using (var db = new GameTrackerConn())
             {
