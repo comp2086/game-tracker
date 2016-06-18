@@ -30,7 +30,7 @@ namespace GameTracker
 
         /**
          * <summary>
-         * This assigns a datasource to a dropdown list
+         * This methods populates a dropdown list with values from the Teams table
          * </summary>
          * 
          * @method setupDdlTeam
@@ -47,6 +47,8 @@ namespace GameTracker
                 ddl.DataTextField = "name";
                 ddl.DataValueField = "Id";
                 ddl.DataBind();
+                ddl.Items.Insert(0, new ListItem("Select a team ...", "0"));
+                ddl.SelectedIndex = 0;
             }
         }
 
@@ -65,13 +67,13 @@ namespace GameTracker
             ddlWinningTeam.Items.Clear();
 
             // Home Team
-            if (!String.IsNullOrEmpty(ddlHomeTeam.SelectedValue))
+            if (!String.IsNullOrEmpty(ddlHomeTeam.SelectedValue) && !ddlHomeTeam.SelectedValue.Equals("0"))
             {
                 ddlWinningTeam.Items.Add(new ListItem(ddlHomeTeam.SelectedItem.Text, ddlHomeTeam.SelectedValue));
             }
 
             // Away Team
-            if (!String.IsNullOrEmpty(ddlAwayTeam.SelectedValue))
+            if (!String.IsNullOrEmpty(ddlAwayTeam.SelectedValue) && !ddlAwayTeam.SelectedValue.Equals("0"))
             {
                 ddlWinningTeam.Items.Add(new ListItem(ddlAwayTeam.SelectedItem.Text, ddlAwayTeam.SelectedValue));
             }
