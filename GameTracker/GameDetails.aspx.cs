@@ -22,34 +22,84 @@ namespace GameTracker
         {
             if (!IsPostBack)
             {
-                setupDdlTeam(ddlAwayTeam);
                 setupDdlTeam(ddlHomeTeam);
-                setupDdlWinningTeam();
+                setupDdlTeam(ddlAwayTeam);
             }
         }
 
         /**
          * <summary>
-         * This methods populates a dropdown list with values from the Teams table
+         * This methods populates a dropdown list with values from the Teams table.
+         * Optional: if valueToRemove is passed to the method, it will be removed from the dropdown list.
+         *           Preserves the previously selected value.
          * </summary>
          * 
          * @method setupDdlTeam
          * @param {DropDownList} ddl
+         * @param {int} valueToRemove
+         * @param {int} selectedValue
          * @returns {void}
          */
-        private void setupDdlTeam(DropDownList ddl)
+        private void setupDdlTeam(DropDownList ddl, int valueToRemove = -1, int selectedValue = -1)
         {
             using (var db = new GameTrackerConn())
             {
+                // Populate item list from the db
                 ddl.DataSource = (from team in db.Teams
                                   orderby team.name
                                   select new { team.Id, team.name }).ToList();
                 ddl.DataTextField = "name";
                 ddl.DataValueField = "Id";
                 ddl.DataBind();
+
+                // Insert a dummy item
                 ddl.Items.Insert(0, new ListItem("Select a team ...", "0"));
-                ddl.SelectedIndex = 0;
+
+                // Remove an item, if necessary
+                if (valueToRemove > 0)
+                {
+                    ddl.Items.Remove(ddl.Items.FindByValue(valueToRemove.ToString()));
+                }
+
+                // Restore previous selection, if any
+                if (selectedValue != valueToRemove)
+                {
+                    ddl.SelectedValue = selectedValue.ToString();
+                }
             }
+        }
+
+        /**
+         * <summary>
+         * Event handler, triggers on change of the selected value in home/away team dropdown list
+         * </summary>
+         * 
+         * @method homeAwayTeam_SelectedIndexChanged
+         * @param {object} sender
+         * @param {EventArgs} e
+         * @returns {void}
+         */
+        protected void homeAwayTeam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Determine which ddl's selected item has been changed
+            DropDownList ddl = (DropDownList)sender;
+            var ddlName = ddl.ID;
+
+            // Make sure the selected item is not a dummy value
+            var selectedValue = Convert.ToInt32(ddl.SelectedValue);
+
+            // Render the second ddl without the selected item in the first ddl
+            if (ddlName == "ddlHomeTeam")
+            {
+                setupDdlTeam(ddlAwayTeam, selectedValue, Convert.ToInt32(ddlAwayTeam.SelectedValue));
+            }
+            else
+            {
+                setupDdlTeam(ddlHomeTeam, selectedValue, Convert.ToInt32(ddlHomeTeam.SelectedValue));
+            }
+
+            // Finally, re-render the winning team ddl
+            setupDdlWinningTeam();
         }
 
         /**
@@ -77,21 +127,6 @@ namespace GameTracker
             {
                 ddlWinningTeam.Items.Add(new ListItem(ddlAwayTeam.SelectedItem.Text, ddlAwayTeam.SelectedValue));
             }
-        }
-
-        /**
-         * <summary>
-         * Event handler, triggers on change of the selected value in home/away team dropdown list
-         * </summary>
-         * 
-         * @method homeAwayTeam_SelectedIndexChanged
-         * @param {object} sender
-         * @param {EventArgs} e
-         * @returns {void}
-         */
-        protected void homeAwayTeam_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            setupDdlWinningTeam();
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
