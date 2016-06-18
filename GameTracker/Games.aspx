@@ -6,6 +6,12 @@
         Games Page
         http://asp-game-tracker.azurewebsites.net/Games.aspx
         -->
+    <div class="row">
+        <div class="container">
+            <asp:Button runat="server" ID="LastWeekButton" CssClass="pull-left" Text="Prev" OnClick="LastWeekButton_Click" />
+            <asp:Button runat="server" ID="NextWeekButton" CssClass="pull-right" Text="Next" OnClick="NextWeekButton_Click" />
+        </div>
+    </div>
     <div class="container">
         <h1 class="text-center">Games</h1>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -64,7 +70,14 @@
         <asp:Label ID="txtGameFourDescription" runat="server"></asp:Label>
       </div>
     </div>
-  </div>        
+  </div>  
+        <asp:Label ID="debugBox1" runat="server"></asp:Label>
+        <asp:Label ID="debugBox2" runat="server"></asp:Label>
+        <asp:Label ID="debugBox3" runat="server"></asp:Label>
+        <asp:Label ID="debugBox4" runat="server"></asp:Label>
+        <asp:Label ID="debugBox5" runat="server"></asp:Label>
+        <asp:Label ID="debugBox6" runat="server"></asp:Label>
+
 </div>
 </div>
 </asp:Content>
