@@ -49,6 +49,33 @@ namespace GameTracker {
         protected global::System.Web.UI.WebControls.Label txtGameOneDescription;
         
         /// <summary>
+        /// txtGameOneTotalPointsScored control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameOneTotalPointsScored;
+        
+        /// <summary>
+        /// txtGameOneAwayTeamPointsLost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameOneAwayTeamPointsLost;
+        
+        /// <summary>
+        /// txtGameOneHomeTeamPointsLost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameOneHomeTeamPointsLost;
+        
+        /// <summary>
         /// txtGameTwoHeading control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,33 @@ namespace GameTracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtGameTwoDescription;
+        
+        /// <summary>
+        /// txtGameTwoTotalPointsScored control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameTwoTotalPointsScored;
+        
+        /// <summary>
+        /// txtGameTwoAwayTeamPointsLost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameTwoAwayTeamPointsLost;
+        
+        /// <summary>
+        /// txtGameTwoHomeTeamPointsLost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameTwoHomeTeamPointsLost;
         
         /// <summary>
         /// txtGameThreeHeading control.
@@ -85,6 +139,33 @@ namespace GameTracker {
         protected global::System.Web.UI.WebControls.Label txtGameThreeDescription;
         
         /// <summary>
+        /// txtGameThreeTotalPointsScored control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameThreeTotalPointsScored;
+        
+        /// <summary>
+        /// txtGameThreeAwayTeamPointsLost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameThreeAwayTeamPointsLost;
+        
+        /// <summary>
+        /// txtGameThreeHomeTeamPointsLost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtGameThreeHomeTeamPointsLost;
+        
+        /// <summary>
         /// txtGameFourHeading control.
         /// </summary>
         /// <remarks>
@@ -103,57 +184,66 @@ namespace GameTracker {
         protected global::System.Web.UI.WebControls.Label txtGameFourDescription;
         
         /// <summary>
-        /// debugBox1 control.
+        /// txtGameFourTotalPointsScored control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label debugBox1;
+        protected global::System.Web.UI.WebControls.Label txtGameFourTotalPointsScored;
         
         /// <summary>
-        /// debugBox2 control.
+        /// txtGameFourAwayTeamPointsLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label debugBox2;
+        protected global::System.Web.UI.WebControls.Label txtGameFourAwayTeamPointsLost;
         
         /// <summary>
-        /// debugBox3 control.
+        /// txtGameFourHomeTeamPointsLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label debugBox3;
+        protected global::System.Web.UI.WebControls.Label txtGameFourHomeTeamPointsLost;
         
         /// <summary>
-        /// debugBox4 control.
+        /// debug1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label debugBox4;
+        protected global::System.Web.UI.WebControls.Label debug1;
         
         /// <summary>
-        /// debugBox5 control.
+        /// debug2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label debugBox5;
+        protected global::System.Web.UI.WebControls.Label debug2;
         
         /// <summary>
-        /// debugBox6 control.
+        /// debug3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label debugBox6;
+        protected global::System.Web.UI.WebControls.Label debug3;
+        
+        /// <summary>
+        /// debug4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label debug4;
     }
 }

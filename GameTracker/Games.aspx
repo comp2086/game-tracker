@@ -25,7 +25,10 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-       <asp:Label ID="txtGameOneDescription" runat="server"></asp:Label>
+        Description: <asp:Label ID="txtGameOneDescription" runat="server"></asp:Label><br />
+        Total Points Scored: <asp:Label ID="txtGameOneTotalPointsScored" runat="server"></asp:Label><br />
+        Away Team Points Lost: <asp:Label ID="txtGameOneAwayTeamPointsLost" runat="server"></asp:Label><br />
+        Home Team Points Lost: <asp:Label ID="txtGameOneHomeTeamPointsLost" runat="server"></asp:Label><br />
       </div>
     </div>
   </div>
@@ -39,7 +42,11 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        <asp:Label ID="txtGameTwoDescription" runat="server"></asp:Label>
+        Description: <asp:Label ID="txtGameTwoDescription" runat="server"></asp:Label><br />
+        Total Points Scored: <asp:Label ID="txtGameTwoTotalPointsScored" runat="server"></asp:Label><br />
+        Away Team Points Lost: <asp:Label ID="txtGameTwoAwayTeamPointsLost" runat="server"></asp:Label><br />
+        Home Team Points Lost: <asp:Label ID="txtGameTwoHomeTeamPointsLost" runat="server"></asp:Label><br />
+
       </div>
     </div>
   </div>
@@ -53,7 +60,10 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        <asp:Label ID="txtGameThreeDescription" runat="server"></asp:Label>
+        Description: <asp:Label ID="txtGameThreeDescription" runat="server"></asp:Label><br />
+        Total Points Scored: <asp:Label ID="txtGameThreeTotalPointsScored" runat="server"></asp:Label><br />
+        Away Team Points Lost: <asp:Label ID="txtGameThreeAwayTeamPointsLost" runat="server"></asp:Label><br />
+        Home Team Points Lost: <asp:Label ID="txtGameThreeHomeTeamPointsLost" runat="server"></asp:Label><br />
       </div>
     </div>
   </div>
@@ -67,17 +77,17 @@
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body">
-        <asp:Label ID="txtGameFourDescription" runat="server"></asp:Label>
+        Description: <asp:Label ID="txtGameFourDescription" runat="server"></asp:Label><br />
+        Total Points Scored: <asp:Label ID="txtGameFourTotalPointsScored" runat="server"></asp:Label><br />
+        Away Team Points Lost: <asp:Label ID="txtGameFourAwayTeamPointsLost" runat="server"></asp:Label><br />
+        Home Team Points Lost: <asp:Label ID="txtGameFourHomeTeamPointsLost" runat="server"></asp:Label><br />
       </div>
     </div>
   </div>  
-        <asp:Label ID="debugBox1" runat="server"></asp:Label>
-        <asp:Label ID="debugBox2" runat="server"></asp:Label>
-        <asp:Label ID="debugBox3" runat="server"></asp:Label>
-        <asp:Label ID="debugBox4" runat="server"></asp:Label>
-        <asp:Label ID="debugBox5" runat="server"></asp:Label>
-        <asp:Label ID="debugBox6" runat="server"></asp:Label>
-
 </div>
+        <asp:Label runat="server" ID="debug1"></asp:Label>
+        <asp:Label runat="server" ID="debug2"></asp:Label>
+        <asp:Label runat="server" ID="debug3"></asp:Label>
+        <asp:Label runat="server" ID="debug4"></asp:Label>
 </div>
 </asp:Content>

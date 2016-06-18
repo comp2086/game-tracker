@@ -30,6 +30,11 @@ namespace GameTracker
          */ 
         private void GetMostRecentGames()
         {
+
+            //set next and prev buttons to hidden
+            NextWeekButton.Visible = false;
+            LastWeekButton.Visible = false;
+
             using (var db = new GameTrackerConn())
             {
                 //stores a week before the current date
@@ -42,7 +47,12 @@ namespace GameTracker
                 //stores the games we want to display
                 List<Game> gamesToDisplay = new List<Game>();
                 List<Team> teamsToDisplay = new List<Team>();
-                
+                List<Game> gamesToNotDisplay = new List<Game>();
+
+                //stores the dates in a format c# likes
+                var currentDate = DateTime.Now.AddDays(timeToAddOrSubtract);
+                var endOfWeekDate = dateMinusAWeek.AddDays(timeToAddOrSubtract);
+
                 //iterates through game data
                 foreach (Game game in games)
                 {
@@ -56,10 +66,6 @@ namespace GameTracker
                                     where game.FK_awayTeam == team.Id
                                     select team).FirstOrDefault();
 
-                    //stores the dates in a format c# likes
-                    var currentDate = DateTime.Now.AddDays(timeToAddOrSubtract);
-                    var endOfWeekDate = dateMinusAWeek.AddDays(timeToAddOrSubtract);
-
                     //checks if games were played in the current week the app is looking at
                     if (game.gameDate <= currentDate && game.gameDate >= endOfWeekDate)
                     {
@@ -67,8 +73,27 @@ namespace GameTracker
                         teamsToDisplay.Add(teamHome);
                         teamsToDisplay.Add(teamAway);
                         gamesToDisplay.Add(game);
+                    }else if(game.gameDate > currentDate || game.gameDate < endOfWeekDate)
+                    {
+                        gamesToNotDisplay.Add(game);
                     }
                     
+                }
+
+                if(gamesToNotDisplay.Count > 0)
+                {
+                    foreach(Game game in gamesToNotDisplay)
+                    {
+                        if(game.gameDate > currentDate)
+                        {
+                            NextWeekButton.Visible = true;
+                        }
+
+                        if(game.gameDate < endOfWeekDate)
+                        {
+                            LastWeekButton.Visible = true;
+                        }
+                    }
                 }
 
 
@@ -81,6 +106,9 @@ namespace GameTracker
                                               + teamsToDisplay[1].name.ToString();
 
                     txtGameOneDescription.Text = gamesToDisplay[0].description.ToString();
+                    txtGameOneTotalPointsScored.Text = Convert.ToString(gamesToDisplay[0].homeTeamScore + gamesToDisplay[0].awayTeamScore);
+                    txtGameOneAwayTeamPointsLost.Text = Convert.ToString(gamesToDisplay[0].homeTeamScore);
+                    txtGameOneHomeTeamPointsLost.Text = Convert.ToString(gamesToDisplay[0].awayTeamScore);
 
 
                     txtGameTwoHeading.Text = teamsToDisplay[2].name.ToString() + " : "
@@ -89,6 +117,9 @@ namespace GameTracker
                                                   + teamsToDisplay[3].name.ToString();
 
                     txtGameTwoDescription.Text = gamesToDisplay[1].description.ToString();
+                    txtGameTwoTotalPointsScored.Text = Convert.ToString(gamesToDisplay[1].homeTeamScore + gamesToDisplay[1].awayTeamScore);
+                    txtGameTwoAwayTeamPointsLost.Text = Convert.ToString(gamesToDisplay[1].homeTeamScore);
+                    txtGameTwoHomeTeamPointsLost.Text = Convert.ToString(gamesToDisplay[1].awayTeamScore);
 
 
                     txtGameThreeHeading.Text = teamsToDisplay[4].name.ToString() + " : "
@@ -97,6 +128,9 @@ namespace GameTracker
                                                   + teamsToDisplay[5].name.ToString();
 
                     txtGameThreeDescription.Text = gamesToDisplay[2].description.ToString();
+                    txtGameThreeTotalPointsScored.Text = Convert.ToString(gamesToDisplay[2].homeTeamScore + gamesToDisplay[2].awayTeamScore);
+                    txtGameThreeAwayTeamPointsLost.Text = Convert.ToString(gamesToDisplay[2].homeTeamScore);
+                    txtGameThreeHomeTeamPointsLost.Text = Convert.ToString(gamesToDisplay[2].awayTeamScore);
 
                     txtGameFourHeading.Text = teamsToDisplay[6].name.ToString() + " : "
                                                   + gamesToDisplay[3].homeTeamScore.ToString() + " | "
@@ -104,6 +138,9 @@ namespace GameTracker
                                                   + teamsToDisplay[7].name.ToString();
 
                     txtGameFourDescription.Text = gamesToDisplay[3].description.ToString();
+                    txtGameFourTotalPointsScored.Text = Convert.ToString(gamesToDisplay[3].homeTeamScore + gamesToDisplay[3].awayTeamScore);
+                    txtGameFourAwayTeamPointsLost.Text = Convert.ToString(gamesToDisplay[3].homeTeamScore);
+                    txtGameFourHomeTeamPointsLost.Text = Convert.ToString(gamesToDisplay[3].awayTeamScore);
                 }
                 catch
                 {
@@ -116,7 +153,6 @@ namespace GameTracker
                     txtGameFourHeading.Text = "No Game";
                     txtGameFourDescription.Text = "No Description";
                 }
-                
                 
             }
 
