@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 /**
  * Game Tracker
- * By: Anthony Scinocco & Alex Andriisyn
+ * By: Anthony Scinocco & Alex Andriishyn
  * Contact Page Code Behind file
  * http://asp-game-tracker.azurewebsites.net/Contact.aspx
  */

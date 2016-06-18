@@ -1,4 +1,11 @@
-﻿using System;
+﻿/**
+ * Game Tracker
+ * By: Anthony Scinocco & Alex Andriishyn
+ * TeamDetails Page Code Behind file
+ * http://asp-game-tracker.azurewebsites.net/TeamDetails.aspx
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
@@ -21,6 +28,16 @@ namespace GameTracker
             Response.Redirect("Default.aspx");
         }
 
+        /**
+        * <summary>
+        * Event handler, saves a new team to the database on save button click
+        * </summary>
+        * 
+        * @method btnSave_Click
+        * @param {object} sender
+        * @param {EventArgs} e
+        * @returns {void}
+        */
         protected void btnSave_Click(object sender, EventArgs e)
         {
             Team team = new Team();

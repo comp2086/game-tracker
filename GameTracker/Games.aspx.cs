@@ -1,4 +1,11 @@
-﻿using System;
+﻿/**
+ * Game Tracker
+ * By: Anthony Scinocco & Alex Andriishyn
+ * Games Page Code Behind file
+ * http://asp-game-tracker.azurewebsites.net/Games.aspx
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
