@@ -167,7 +167,7 @@ namespace GameTracker
                 }
                 catch (Exception ex)
                 {
-                    // Displayy an error message
+                    // Display an error message
                 }
             }
         }
