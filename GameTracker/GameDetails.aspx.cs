@@ -131,12 +131,12 @@ namespace GameTracker
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
+            Response.Redirect("~/Default.aspx");
         }
 
         /**
         * <summary>
-        * Event handler, saves a new game to the database on save button click
+        * Event handler, saves a new game to the DB
         * </summary>
         * 
         * @method btnSave_Click

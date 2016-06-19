@@ -24,6 +24,7 @@
                 <li id="teamDetails" runat="server"><a href="TeamDetails.aspx"><i class="fa fa-home fa-lg"></i> New Team</a></li>
                 <li id="gameDetails" runat="server"><a href="GameDetails.aspx"><i class="fa fa-home fa-lg"></i> New Game</a></li>
                 <li id="contact" runat="server"><a href="Contact.aspx"><i class="fa fa-phone fa-lg"></i> Contact</a></li>
+                <li id="register" runat="server"><a href="Register.aspx"><i class="fa fa-signup fa-lg"></i> Register</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

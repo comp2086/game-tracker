@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
+        <div class="page-header">
+            <h2>Game Details</h2>
+        </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-3">
                 <!-- Form -->
