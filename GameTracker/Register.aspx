@@ -69,9 +69,9 @@
                     <div class="row">
                         <div class="col-md-7">
                             <div class="text-right">
-                                <asp:Button Text="Cancel" ID="btnCancel" CssClass="btn btn-warning btn-lg" runat="server"
+                                <asp:Button Text="Cancel" ID="btnCancel" CssClass="btn btn-default" runat="server"
                                     UseSubmitBehavior="false" CausesValidation="false" OnClick="btnCancel_Click" />
-                                <asp:Button Text="Register" ID="btnRegister" CssClass="btn btn-primary btn-lg" runat="server" OnClick="btnRegister_Click" />
+                                <asp:Button Text="Register" ID="btnRegister" CssClass="btn btn-primary" runat="server" OnClick="btnRegister_Click" />
                             </div>
                         </div>
                     </div>

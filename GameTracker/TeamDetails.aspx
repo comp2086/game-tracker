@@ -2,21 +2,43 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
+        <div class="page-header">
+            <h2>Team Details</h2>
+        </div>
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-8 col-md-offset-3">
+                <!-- Form -->
                 <div class="form-group">
                     <label for="txtTeamName" class="control-label">Team Name: </label>
-                    <asp:TextBox ID="txtTeamName" CssClass="form-control" runat="server"></asp:TextBox>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <asp:TextBox ID="txtTeamName" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="col-md-5">
+                            Validate
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="txtTeamDescription" class="control-label">Team Description: </label>
-                    <asp:TextBox ID="txtTeamDescription" CssClass="form-control" runat="server"></asp:TextBox>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <asp:TextBox ID="txtTeamDescription" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="col-md-5">
+                            Validate
+                        </div>
+                    </div>
                 </div>
                 <div class="text-right">
-                    <asp:Button Text="Cancel" ID="btnCancel" CssClass="btn btn-warning btn-lg" runat="server" 
-                        UseSubmitBehavior="false" CausesValidation="false" OnClick="btnCancel_Click" />
-                    <asp:Button Text="Save" ID="btnSave" CssClass="btn btn-primary btn-lg" runat="server" OnClick="btnSave_Click" />
-                </div>             
+                    <div class="row">
+                        <div class="col-md-7">
+                            <asp:Button Text="Cancel" ID="btnCancel" CssClass="btn btn-default" runat="server"
+                                UseSubmitBehavior="false" CausesValidation="false" OnClick="btnCancel_Click" />
+                            <asp:Button Text="Save" ID="btnSave" CssClass="btn btn-primary" runat="server" OnClick="btnSave_Click" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
