@@ -1,15 +1,21 @@
-﻿using System;
+﻿/**
+ * Game Tracker
+ * @author Anthony Scinocco & Alex Andriishyn
+ * Navbar Code Behind file
+ * http://asp-game-tracker.azurewebsites.net/Games.aspx
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-/**
- * @author: Tom Tsiliopoulos
- * @date: May 26, 2016
- * @version: 0.0.1 - added SetActivePage method
- */
+// required for Identity and OWIN Security
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 
 namespace GameTracker
 {
@@ -17,7 +23,30 @@ namespace GameTracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetActivePage();
+            if (!IsPostBack)
+            {
+                // Check if a user is logged in
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+
+                    // Show protected content
+                    phDetails.Visible = true;
+                    phPublic.Visible = false;
+
+                    if (HttpContext.Current.User.Identity.GetUserName() == "admin")
+                    {
+                        // Admin placeholder for user management links...
+                    }
+                }
+                else
+                {
+                    // Show only public content
+                    phDetails.Visible = false;
+                    phPublic.Visible = true;
+                }
+
+                SetActivePage();
+            }
         }
 
         /**

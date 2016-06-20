@@ -129,7 +129,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="GameDetails.aspx" />
+    <Content Include="Games\GameDetails.aspx" />
     <Content Include="Games.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -181,7 +181,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="TeamDetails.aspx" />
+    <Content Include="Games\TeamDetails.aspx" />
     <Content Include="User_Controls\Jumbotron.ascx" />
     <Content Include="User_Controls\Navbar.ascx" />
     <Content Include="Scripts\app.js" />
@@ -207,11 +207,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GameDetails.aspx.cs">
+    <Compile Include="Games\GameDetails.aspx.cs">
       <DependentUpon>GameDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GameDetails.aspx.designer.cs">
+    <Compile Include="Games\GameDetails.aspx.designer.cs">
       <DependentUpon>GameDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Games.aspx.cs">
@@ -267,11 +267,11 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="TeamDetails.aspx.cs">
+    <Compile Include="Games\TeamDetails.aspx.cs">
       <DependentUpon>TeamDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TeamDetails.aspx.designer.cs">
+    <Compile Include="Games\TeamDetails.aspx.designer.cs">
       <DependentUpon>TeamDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">
