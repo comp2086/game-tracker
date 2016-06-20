@@ -5,8 +5,9 @@
             <h1>User Dashboard</h1>
         </div>
         <div class="row">
-            <asp:Button ID="btnCreateUser" Text="Create User" CssClass="btn btn-success btn-lg pull-left" OnClick="btnCreateUser_Click" runat="server"/>
+            <asp:Button ID="btnCreateUser" Text="Create User" CssClass="btn btn-success pull-right" OnClick="btnCreateUser_Click" runat="server"/>
         </div>
+        <br />
         <div class="row">
             <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover"
                 ID="grdUsers" AutoGenerateColumns="false" DataKeyNames="Id" 
