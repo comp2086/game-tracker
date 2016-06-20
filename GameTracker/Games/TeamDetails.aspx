@@ -15,7 +15,9 @@
                             <asp:TextBox ID="txtTeamName" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            Validate
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtTeamName"
+                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Team Name is Required</div>'
+                                 SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -26,7 +28,9 @@
                             <asp:TextBox ID="txtTeamDescription" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            Validate
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTeamDescription"
+                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Team Description is Required</div>'
+                                 SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>

@@ -64,9 +64,6 @@ namespace GameTracker
                 case "Home Page":
                     home.Attributes.Add("class", "active");
                     break;
-                case "Contact":
-                    contact.Attributes.Add("class", "active");
-                    break;
                 case "Games":
                     games.Attributes.Add("class", "active");
                     break;
@@ -75,6 +72,12 @@ namespace GameTracker
                     break;
                 case "Team Details":
                     teamDetails.Attributes.Add("class", "active");
+                    break;
+                case "Register":
+                    register.Attributes.Add("class", "active");
+                    break;
+                case "Sign In":
+                    login.Attributes.Add("class", "active");
                     break;
             }
         }
