@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="page-header">
-                <h2>Register</h2>
+                <h2>Sign Up</h2>
             </div>
             <div class="alert alert-danger" id="AlertFlash" runat="server" visible="false">
                 <asp:Label runat="server" ID="StatusLabel" />
@@ -58,10 +58,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="chkAdmin" class="control-label">I want to be an admin: </label>
+                    <label for="chkAdmin" class="control-label">Admin: </label>
                     <div class="row">
                         <div class="col-md-7">
-                            <asp:CheckBox ID="chkAdmin" runat="server" />
+                            <asp:CheckBox ID="chkAdmin" runat="server" Text="&nbspYes" />
                         </div>
                     </div>
                 </div>

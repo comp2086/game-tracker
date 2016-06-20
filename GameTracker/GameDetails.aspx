@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
-        <div class="page-header">
-            <h2>Game Details</h2>
-        </div>
         <div class="row">
+            <div class="page-header">
+                <h2>Game Details</h2>
+            </div>
             <div class="col-md-8 col-md-offset-3">
                 <!-- Form -->
                 <div class="form-group">
@@ -15,9 +15,9 @@
                             <asp:TextBox ID="txtGameName" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Game Name is Required</div>'
-                                 ControlToValidate="txtGameName" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                ControlToValidate="txtGameName" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -29,9 +29,9 @@
                                 TextMode="MultiLine" Rows="5" Columns="3"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Game Description is Required</div>'
-                                 ControlToValidate="txtGameDescription" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                ControlToValidate="txtGameDescription" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -44,8 +44,8 @@
                             </asp:DropDownList>
                         </div>
                         <div class="col-md-5">
-                            <asp:RangeValidator ID="RangeValidator1" runat="server" 
-                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please select Home Team</div>' 
+                            <asp:RangeValidator ID="RangeValidator1" runat="server"
+                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please select Home Team</div>'
                                 ControlToValidate="ddlHomeTeam" MinimumValue="1" MaximumValue="9999" SetFocusOnError="True"></asp:RangeValidator>
                         </div>
                     </div>
@@ -59,8 +59,8 @@
                             </asp:DropDownList>
                         </div>
                         <div class="col-md-5">
-                            <asp:RangeValidator ID="RangeValidator2" runat="server" 
-                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please select Away Team</div>' 
+                            <asp:RangeValidator ID="RangeValidator2" runat="server"
+                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please select Away Team</div>'
                                 ControlToValidate="ddlAwayTeam" MinimumValue="1" MaximumValue="9999" SetFocusOnError="True"></asp:RangeValidator>
                         </div>
                     </div>
@@ -72,13 +72,13 @@
                             <asp:TextBox ID="txtHomeTeamScore" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please enter Home Team Score</div>'
                                 ControlToValidate="txtHomeTeamScore" SetFocusOnError="True" Display="Dynamic">
                             </asp:RequiredFieldValidator>
-                            <asp:RangeValidator ID="RangeValidator3" runat="server" 
+                            <asp:RangeValidator ID="RangeValidator3" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Invalid Value</div>'
-                                 ControlToValidate="txtHomeTeamScore" MinimumValue="0" MaximumValue="9999" Display="Dynamic" SetFocusOnError="True"></asp:RangeValidator>
+                                ControlToValidate="txtHomeTeamScore" MinimumValue="0" MaximumValue="9999" Display="Dynamic" SetFocusOnError="True"></asp:RangeValidator>
                         </div>
                     </div>
                 </div>
@@ -89,13 +89,13 @@
                             <asp:TextBox ID="txtAwayTeamScore" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please enter Away Team Score</div>'
                                 ControlToValidate="txtAwayTeamScore" SetFocusOnError="True" Display="Dynamic">
                             </asp:RequiredFieldValidator>
-                            <asp:RangeValidator ID="RangeValidator4" runat="server" 
+                            <asp:RangeValidator ID="RangeValidator4" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Invalid Value</div>'
-                                 ControlToValidate="txtAwayTeamScore" MinimumValue="0" MaximumValue="9999" SetFocusOnError="True" Display="Dynamic"></asp:RangeValidator>
+                                ControlToValidate="txtAwayTeamScore" MinimumValue="0" MaximumValue="9999" SetFocusOnError="True" Display="Dynamic"></asp:RangeValidator>
                         </div>
                     </div>
                 </div>
@@ -106,13 +106,13 @@
                             <asp:TextBox ID="txtNumberOfSpectators" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please enter the Number of Spectators</div>'
                                 ControlToValidate="txtNumberOfSpectators" SetFocusOnError="True" Display="Dynamic">
                             </asp:RequiredFieldValidator>
-                            <asp:RangeValidator ID="RangeValidator5" runat="server" 
+                            <asp:RangeValidator ID="RangeValidator5" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Invalid Value</div>'
-                                 ControlToValidate="txtNumberOfSpectators" MinimumValue="0" MaximumValue="9999" SetFocusOnError="True" Display="Dynamic"></asp:RangeValidator>
+                                ControlToValidate="txtNumberOfSpectators" MinimumValue="0" MaximumValue="9999" SetFocusOnError="True" Display="Dynamic"></asp:RangeValidator>
                         </div>
                     </div>
                 </div>
@@ -123,9 +123,9 @@
                             <asp:DropDownList ID="ddlWinningTeam" CssClass="form-control" runat="server"></asp:DropDownList>
                         </div>
                         <div class="col-md-5">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please select Winning Team</div>'
-                                 ControlToValidate="ddlWinningTeam" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                ControlToValidate="ddlWinningTeam" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
                             <asp:TextBox ID="txtGameDate" CssClass="form-control" runat="server" TextMode="Date"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server"
                                 ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Please select Game Date</div>'
                                 ControlToValidate="txtGameDate" SetFocusOnError="True"></asp:RequiredFieldValidator>
                         </div>

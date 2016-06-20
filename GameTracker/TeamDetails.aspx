@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
-        <div class="page-header">
-            <h2>Team Details</h2>
-        </div>
         <div class="row">
+            <div class="page-header">
+                <h2>Team Details</h2>
+            </div>
             <div class="col-md-8 col-md-offset-3">
                 <!-- Form -->
                 <div class="form-group">
