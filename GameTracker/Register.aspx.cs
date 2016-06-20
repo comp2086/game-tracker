@@ -61,7 +61,7 @@ namespace GameTracker
             else
             {
                 // display error in the AlertFlash div
-                StatusLabel.Text = result.Errors.FirstOrDefault();
+                lblStatus.Text = result.Errors.FirstOrDefault();
                 AlertFlash.Visible = true;
             }
         }

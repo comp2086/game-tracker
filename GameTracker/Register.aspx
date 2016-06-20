@@ -6,19 +6,25 @@
             <div class="page-header">
                 <h2>Sign Up</h2>
             </div>
-            <div class="alert alert-danger" id="AlertFlash" runat="server" visible="false">
-                <asp:Label runat="server" ID="StatusLabel" />
-            </div>
             <div class="col-md-8 col-md-offset-3">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="alert alert-danger text-center" id="AlertFlash" runat="server" visible="false">
+                            <asp:Label runat="server" ID="lblStatus" />
+                        </div>
+                    </div>
+                </div>
                 <!-- Form -->
                 <div class="form-group">
-                    <label for="txtFirstName" class="control-label">Name: </label>
+                    <label for="txtFirstName" class="control-label">Username: </label>
                     <div class="row">
                         <div class="col-md-7">
-                            <asp:TextBox ID="txtUserName" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtUserName" CssClass="form-control" runat="server" required="true"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            Validate
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUserName"
+                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Username is Required</div>'
+                                 SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -26,10 +32,12 @@
                     <label for="txtEmail" class="control-label">Email: </label>
                     <div class="row">
                         <div class="col-md-7">
-                            <asp:TextBox ID="txtEmail" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtEmail" TextMode="Email" CssClass="form-control" runat="server" required="true"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            Validate
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmail"
+                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Email is Required</div>'
+                                 SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -40,7 +48,9 @@
                             <asp:TextBox ID="txtPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
-                            Validate
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPassword"
+                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Password is Required</div>'
+                                 SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
@@ -51,6 +61,9 @@
                             <asp:TextBox runat="server" TextMode="Password" CssClass="form-control" ID="txtConfirmPassword" placeholder="Confirm Password" required="true" TabIndex="0"></asp:TextBox>
                         </div>
                         <div class="col-md-5">
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtConfirmPassword"
+                                ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Password Confirmation is Required</div>'
+                                 SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
                             <asp:CompareValidator ErrorMessage='<div class="text-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Passwords do not match</div>'
                                 Type="String" Operator="Equal" ControlToValidate="txtConfirmPassword" runat="server"
                                 ControlToCompare="txtPassword" SetFocusOnError="True" />
