@@ -107,10 +107,6 @@
                     </div>
                 </div>
             </div>
-            <asp:Label runat="server" ID="debug1"></asp:Label>
-            <asp:Label runat="server" ID="debug2"></asp:Label>
-            <asp:Label runat="server" ID="debug3"></asp:Label>
-            <asp:Label runat="server" ID="debug4"></asp:Label>
         </div>
     </div>
 </asp:Content>

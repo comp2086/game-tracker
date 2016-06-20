@@ -16,7 +16,7 @@ using GameTracker.Models;
 namespace GameTracker
 {
     public partial class Games : System.Web.UI.Page
-    {
+    { 
         //stores the amount of days to add or subtract from our date
         static int timeToAddOrSubtract = 0;
 
@@ -37,7 +37,7 @@ namespace GameTracker
          */ 
         private void GetMostRecentGames()
         {
-
+            
             //set next and prev buttons to hidden
             NextWeekButton.Visible = false;
             LastWeekButton.Visible = false;
@@ -153,16 +153,31 @@ namespace GameTracker
                 {
                     txtGameOneHeading.Text = "No Game";
                     txtGameOneDescription.Text = "No Description";
+                    txtGameOneTotalPointsScored.Text = "N/A";
+                    txtGameOneAwayTeamPointsLost.Text = "N/A";
+                    txtGameOneHomeTeamPointsLost.Text = "N/A";
+
                     txtGameTwoHeading.Text = "No Game";
                     txtGameTwoDescription.Text = "No Description";
+                    txtGameTwoTotalPointsScored.Text = "N/A";
+                    txtGameTwoAwayTeamPointsLost.Text = "N/A";
+                    txtGameTwoHomeTeamPointsLost.Text = "N/A";
+
                     txtGameThreeHeading.Text = "No Game";
                     txtGameThreeDescription.Text = "No Description";
+                    txtGameThreeTotalPointsScored.Text = "N/A";
+                    txtGameThreeAwayTeamPointsLost.Text = "N/A";
+                    txtGameThreeHomeTeamPointsLost.Text = "N/A";
+
                     txtGameFourHeading.Text = "No Game";
                     txtGameFourDescription.Text = "No Description";
+                    txtGameFourTotalPointsScored.Text = "N/A";
+                    txtGameFourAwayTeamPointsLost.Text = "N/A";
+                    txtGameFourHomeTeamPointsLost.Text = "N/A";
                 }
                 
             }
-
+            
         }
 
         /**
