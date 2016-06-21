@@ -56,7 +56,7 @@ namespace GameTracker
                 authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
 
                 // Redirect to the Main Menu page
-                Response.Redirect("~/GameDetails.aspx");
+                Response.Redirect("~/Games/GameDetails.aspx");
             }
             else
             {
