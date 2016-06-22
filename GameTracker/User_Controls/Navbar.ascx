@@ -28,6 +28,7 @@
                 <asp:PlaceHolder ID="phDetails" runat="server">
                     <li id="teamDetails" runat="server"><a href="/Games/TeamDetails.aspx"><i class="fa fa-tags fa-lg"></i> New Team</a></li>
                     <li id="gameDetails" runat="server"><a href="/Games/GameDetails.aspx"><i class="fa fa-gamepad fa-lg"></i> New Game</a></li>
+                     <li id="userDashboard" runat="server"><a href="/Users/UserDashboard.aspx"><i class="fa fa-tachometer fa-lg"></i> User Dashboard</a></li>
                     <li id="logout" runat="server"><a href="/Logout.aspx"><i class="fa fa-sign-out fa-lg"></i> Sign Out</a></li>
                 </asp:PlaceHolder>
             </ul>

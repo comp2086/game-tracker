@@ -79,6 +79,9 @@ namespace GameTracker
                 case "Sign In":
                     login.Attributes.Add("class", "active");
                     break;
+                case "User Dashboard":
+                    userDashboard.Attributes.Add("class", "active");
+                    break;
             }
         }
     }

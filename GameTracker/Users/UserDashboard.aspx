@@ -1,13 +1,16 @@
 ﻿<%@ Page Title="User Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserDashboard.aspx.cs" Inherits="GameTracker.Users.UserDashboard" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <!--
+         Game Tracker
+         By: Anthony Scinocco & Alex Andriishyn
+         UserDashboard aspx page
+         http://asp-game-tracker.azurewebsites.net/Users/UserDashboard.aspx
+        -->
+    
     <div class="container">
         <div class="row">
             <h1>User Dashboard</h1>
         </div>
-        <div class="row">
-            <asp:Button ID="btnCreateUser" Text="Create User" CssClass="btn btn-success pull-right" OnClick="btnCreateUser_Click" runat="server"/>
-        </div>
-        <br />
         <div class="row">
             <asp:GridView runat="server" CssClass="table table-bordered table-striped table-hover"
                 ID="grdUsers" AutoGenerateColumns="false" DataKeyNames="Id" 
