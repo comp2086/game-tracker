@@ -40,7 +40,7 @@ namespace GameTracker
                 authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = false }, userIdentity);
 
                 // Redirect to Main Menu
-                Response.Redirect("~/Games.aspx");
+                Response.Redirect("~/Games/GameDetails.aspx");
             }
             else
             {
