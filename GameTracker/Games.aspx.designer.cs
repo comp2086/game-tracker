@@ -31,6 +31,15 @@ namespace GameTracker {
         protected global::System.Web.UI.WebControls.Button NextWeekButton;
         
         /// <summary>
+        /// lblCurrentWeek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCurrentWeek;
+        
+        /// <summary>
         /// txtGameOneHeading control.
         /// </summary>
         /// <remarks>
@@ -209,5 +218,50 @@ namespace GameTracker {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtGameFourHomeTeamPointsLost;
+        
+        /// <summary>
+        /// debug1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label debug1;
+        
+        /// <summary>
+        /// debug2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label debug2;
+        
+        /// <summary>
+        /// debug3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label debug3;
+        
+        /// <summary>
+        /// debug4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label debug4;
+        
+        /// <summary>
+        /// debug5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label debug5;
     }
 }

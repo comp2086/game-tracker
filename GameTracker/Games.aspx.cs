@@ -7,16 +7,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GameTracker.Models;
+using System.Diagnostics;
 
 namespace GameTracker
 {
     public partial class Games : System.Web.UI.Page
-    { 
+    {
         //stores the amount of days to add or subtract from our date
         static int timeToAddOrSubtract = 0;
 
@@ -24,23 +26,63 @@ namespace GameTracker
          * Handles the page load event
          * 
          * return {void}
-         */ 
+         */
         protected void Page_Load(object sender, EventArgs e)
         {
             GetMostRecentGames();
+        }
+
+        private void displayGame(Game game, Team homeTeam, Team awayTeam, string controlName)
+        {
+            var homeTeamScore = game.homeTeamScore;
+            var awayTeamScore = game.awayTeamScore;
+            var heading = homeTeam.name + " " + homeTeamScore + " : " + awayTeamScore + " " + awayTeam.name;
+            var totalPointsScored = homeTeamScore + awayTeamScore;
+
+            if (controlName == "One")
+            {
+                txtGameOneHeading.Text = heading;
+                txtGameOneDescription.Text = game.description;
+                txtGameOneTotalPointsScored.Text = totalPointsScored.ToString();
+                txtGameOneAwayTeamPointsLost.Text = homeTeamScore.ToString();
+                txtGameOneHomeTeamPointsLost.Text = awayTeamScore.ToString();
+            }else if(controlName == "Two")
+            {
+                txtGameTwoHeading.Text = heading;
+                txtGameTwoDescription.Text = game.description;
+                txtGameTwoTotalPointsScored.Text = totalPointsScored.ToString();
+                txtGameTwoAwayTeamPointsLost.Text = homeTeamScore.ToString();
+                txtGameTwoHomeTeamPointsLost.Text = awayTeamScore.ToString();
+            }
+            else if(controlName == "Three")
+            {
+                txtGameThreeHeading.Text = heading;
+                txtGameThreeDescription.Text = game.description;
+                txtGameThreeTotalPointsScored.Text = totalPointsScored.ToString();
+                txtGameThreeAwayTeamPointsLost.Text = homeTeamScore.ToString();
+                txtGameThreeHomeTeamPointsLost.Text = awayTeamScore.ToString();
+            }
+            else if(controlName == "Four")
+            {
+                txtGameFourHeading.Text = heading;
+                txtGameFourDescription.Text = game.description;
+                txtGameFourTotalPointsScored.Text = totalPointsScored.ToString();
+                txtGameFourAwayTeamPointsLost.Text = homeTeamScore.ToString();
+                txtGameFourHomeTeamPointsLost.Text = awayTeamScore.ToString();
+            }
         }
 
         /**
          * Gets the most recent games
          * 
          * return {void}
-         */ 
+         */
         private void GetMostRecentGames()
         {
-            
+
             //set next and prev buttons to hidden
-            NextWeekButton.Visible = false;
-            LastWeekButton.Visible = false;
+            NextWeekButton.Enabled = false;
+            LastWeekButton.Enabled = false;
 
             using (var db = new GameTrackerConn())
             {
@@ -50,7 +92,7 @@ namespace GameTracker
 
                 var games = (from game in db.Games
                              select game).ToList();
-                
+
                 //stores the games we want to display
                 List<Game> gamesToDisplay = new List<Game>();
                 List<Team> teamsToDisplay = new List<Team>();
@@ -59,10 +101,15 @@ namespace GameTracker
                 //stores the dates in a format c# likes
                 var currentDate = DateTime.Now.AddDays(timeToAddOrSubtract);
                 var endOfWeekDate = dateMinusAWeek.AddDays(timeToAddOrSubtract);
+                
+                //counts the number of games iterated through
+                int counter = 0;
 
                 //iterates through game data
                 foreach (Game game in games)
                 {
+                    counter++;
+
                     //gets associated home team
                     var teamHome = (from team in db.Teams
                                     where game.FK_homeTeam == team.Id
@@ -76,115 +123,58 @@ namespace GameTracker
                     //checks if games were played in the current week the app is looking at
                     if (game.gameDate <= currentDate && game.gameDate >= endOfWeekDate)
                     {
-                        //stores data in lists
-                        teamsToDisplay.Add(teamHome);
-                        teamsToDisplay.Add(teamAway);
-                        gamesToDisplay.Add(game);
-                    }else if(game.gameDate > currentDate || game.gameDate < endOfWeekDate)
+                        // Display a game
+                        if (counter == 1)
+                        {
+                            displayGame(game, teamHome, teamAway, "One");
+                        }
+                        else if(counter == 2)
+                        {
+                            displayGame(game, teamHome, teamAway, "Two");
+                        }
+                        else if (counter == 3)
+                        {
+                            displayGame(game, teamHome, teamAway, "Three");
+                        }
+                        else if(counter == 4)
+                        {
+                            displayGame(game, teamHome, teamAway, "Four");
+                        }
+                        
+                    }
+                    else if (game.gameDate > currentDate || game.gameDate < endOfWeekDate)
                     {
                         gamesToNotDisplay.Add(game);
                     }
-                    
+
                 }
 
-                if(gamesToNotDisplay.Count > 0)
+                if (gamesToNotDisplay.Count > 0)
                 {
-                    foreach(Game game in gamesToNotDisplay)
+                    foreach (Game game in gamesToNotDisplay)
                     {
-                        if(game.gameDate > currentDate)
+                        if (game.gameDate > currentDate)
                         {
-                            NextWeekButton.Visible = true;
+                            NextWeekButton.Enabled = true;
                         }
 
-                        if(game.gameDate < endOfWeekDate)
+                        if (game.gameDate < endOfWeekDate)
                         {
-                            LastWeekButton.Visible = true;
+                            LastWeekButton.Enabled = true;
                         }
                     }
                 }
 
-
-                //output game data
-                try
-                {
-                    txtGameOneHeading.Text = teamsToDisplay[0].name.ToString() + " : "
-                                              + gamesToDisplay[0].homeTeamScore.ToString() + " | "
-                                              + gamesToDisplay[0].awayTeamScore.ToString() + " : "
-                                              + teamsToDisplay[1].name.ToString();
-
-                    txtGameOneDescription.Text = gamesToDisplay[0].description.ToString();
-                    txtGameOneTotalPointsScored.Text = Convert.ToString(gamesToDisplay[0].homeTeamScore + gamesToDisplay[0].awayTeamScore);
-                    txtGameOneAwayTeamPointsLost.Text = Convert.ToString(gamesToDisplay[0].homeTeamScore);
-                    txtGameOneHomeTeamPointsLost.Text = Convert.ToString(gamesToDisplay[0].awayTeamScore);
-
-
-                    txtGameTwoHeading.Text = teamsToDisplay[2].name.ToString() + " : "
-                                                  + gamesToDisplay[1].homeTeamScore.ToString() + " | "
-                                                  + gamesToDisplay[1].awayTeamScore.ToString() + " : "
-                                                  + teamsToDisplay[3].name.ToString();
-
-                    txtGameTwoDescription.Text = gamesToDisplay[1].description.ToString();
-                    txtGameTwoTotalPointsScored.Text = Convert.ToString(gamesToDisplay[1].homeTeamScore + gamesToDisplay[1].awayTeamScore);
-                    txtGameTwoAwayTeamPointsLost.Text = Convert.ToString(gamesToDisplay[1].homeTeamScore);
-                    txtGameTwoHomeTeamPointsLost.Text = Convert.ToString(gamesToDisplay[1].awayTeamScore);
-
-
-                    txtGameThreeHeading.Text = teamsToDisplay[4].name.ToString() + " : "
-                                                  + gamesToDisplay[2].homeTeamScore.ToString() + " | "
-                                                  + gamesToDisplay[2].awayTeamScore.ToString() + " : "
-                                                  + teamsToDisplay[5].name.ToString();
-
-                    txtGameThreeDescription.Text = gamesToDisplay[2].description.ToString();
-                    txtGameThreeTotalPointsScored.Text = Convert.ToString(gamesToDisplay[2].homeTeamScore + gamesToDisplay[2].awayTeamScore);
-                    txtGameThreeAwayTeamPointsLost.Text = Convert.ToString(gamesToDisplay[2].homeTeamScore);
-                    txtGameThreeHomeTeamPointsLost.Text = Convert.ToString(gamesToDisplay[2].awayTeamScore);
-
-                    txtGameFourHeading.Text = teamsToDisplay[6].name.ToString() + " : "
-                                                  + gamesToDisplay[3].homeTeamScore.ToString() + " | "
-                                                  + gamesToDisplay[3].awayTeamScore.ToString() + " : "
-                                                  + teamsToDisplay[7].name.ToString();
-
-                    txtGameFourDescription.Text = gamesToDisplay[3].description.ToString();
-                    txtGameFourTotalPointsScored.Text = Convert.ToString(gamesToDisplay[3].homeTeamScore + gamesToDisplay[3].awayTeamScore);
-                    txtGameFourAwayTeamPointsLost.Text = Convert.ToString(gamesToDisplay[3].homeTeamScore);
-                    txtGameFourHomeTeamPointsLost.Text = Convert.ToString(gamesToDisplay[3].awayTeamScore);
-                }
-                catch
-                {
-                    txtGameOneHeading.Text = "No Game";
-                    txtGameOneDescription.Text = "No Description";
-                    txtGameOneTotalPointsScored.Text = "N/A";
-                    txtGameOneAwayTeamPointsLost.Text = "N/A";
-                    txtGameOneHomeTeamPointsLost.Text = "N/A";
-
-                    txtGameTwoHeading.Text = "No Game";
-                    txtGameTwoDescription.Text = "No Description";
-                    txtGameTwoTotalPointsScored.Text = "N/A";
-                    txtGameTwoAwayTeamPointsLost.Text = "N/A";
-                    txtGameTwoHomeTeamPointsLost.Text = "N/A";
-
-                    txtGameThreeHeading.Text = "No Game";
-                    txtGameThreeDescription.Text = "No Description";
-                    txtGameThreeTotalPointsScored.Text = "N/A";
-                    txtGameThreeAwayTeamPointsLost.Text = "N/A";
-                    txtGameThreeHomeTeamPointsLost.Text = "N/A";
-
-                    txtGameFourHeading.Text = "No Game";
-                    txtGameFourDescription.Text = "No Description";
-                    txtGameFourTotalPointsScored.Text = "N/A";
-                    txtGameFourAwayTeamPointsLost.Text = "N/A";
-                    txtGameFourHomeTeamPointsLost.Text = "N/A";
-                }
-                
+                // Show the first day(date) of the current week
+                lblCurrentWeek.Text = currentDate.ToShortDateString();
             }
-            
         }
 
         /**
          * Handles the operations for adjusting the week todisplay for the previous week button click
          * 
          * return {void}
-         */ 
+         */
         protected void LastWeekButton_Click(object sender, EventArgs e)
         {
             timeToAddOrSubtract -= 7;

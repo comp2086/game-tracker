@@ -19,7 +19,10 @@
                         <asp:Button runat="server" ID="NextWeekButton" CssClass="btn btn-default btn-lg" Text=">" OnClick="NextWeekButton_Click" />
                     </div>
                 </div>
-                <p></p>
+                <div class="pull-right">
+                    <asp:Label ID="lblCurrentWeek" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+                </div>
+                <div class="clearfix"></div>
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne">
@@ -109,4 +112,9 @@
             </div>
         </div>
     </div>
+    <asp:Label runat="server" ID="debug1"></asp:Label>
+    <asp:Label runat="server" ID="debug2"></asp:Label>
+    <asp:Label runat="server" ID="debug3"></asp:Label>
+    <asp:Label runat="server" ID="debug4"></asp:Label>
+    <asp:Label runat="server" ID="debug5"></asp:Label>
 </asp:Content>
