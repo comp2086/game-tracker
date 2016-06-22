@@ -61,9 +61,6 @@ namespace GameTracker
         {
             switch (Page.Title)
             {
-                case "Home Page":
-                    home.Attributes.Add("class", "active");
-                    break;
                 case "Games":
                     games.Attributes.Add("class", "active");
                     break;
