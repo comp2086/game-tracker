@@ -16,7 +16,7 @@
                 </div>
                 <!-- Form -->
                 <div class="form-group">
-                    <label for="txtUserName" class="control-label">Email: </label>
+                    <label for="txtUserName" class="control-label">Username: </label>
                     <div class="row">
                         <div class="col-md-7">
                             <asp:TextBox ID="txtUserName" CssClass="form-control" runat="server" required="true"></asp:TextBox>
