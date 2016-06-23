@@ -7,13 +7,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GameTracker.Models;
-using System.Diagnostics;
+using GameTracker.User_Controls;
 
 namespace GameTracker
 {
@@ -22,6 +21,9 @@ namespace GameTracker
         //stores the amount of days to add or subtract from our date
         static int timeToAddOrSubtract = 0;
 
+        // Nullable type for currentWeek
+        static DateTime currentWeek;
+
         /**
          * Handles the page load event
          * 
@@ -29,151 +31,131 @@ namespace GameTracker
          */
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetMostRecentGames();
+            if (!IsPostBack)
+            {
+                GetMostRecentGames();
+            } 
         }
 
-        private void displayGame(Game game, Team homeTeam, Team awayTeam, string controlName)
+        /**
+         * <summary>
+         * This methods renders game info to the screen
+         * </summary>
+         * 
+         * @method displayGame
+         * @param {Game} game
+         * @param {Team} homeTeam
+         * @param {Team} awayTeam
+         * @param {string} controlName
+         * @returns {void}
+         */
+        private void displayGame(Game game, Team homeTeam, Team awayTeam)
         {
+            // Load custom user control
+            var gamePanel = (GamePanel) LoadControl("~/User_Controls/GamePanel.ascx");
+
+            // Get data from objects
+            var gameDate = game.gameDate.ToShortDateString();
             var homeTeamScore = game.homeTeamScore;
             var awayTeamScore = game.awayTeamScore;
             var heading = homeTeam.name + " " + homeTeamScore + " : " + awayTeamScore + " " + awayTeam.name;
             var totalPointsScored = homeTeamScore + awayTeamScore;
+            var spectators = game.numberOfSpectators;
 
-            if (controlName == "One")
-            {
-                txtGameOneHeading.Text = heading;
-                txtGameOneDescription.Text = game.description;
-                txtGameOneTotalPointsScored.Text = totalPointsScored.ToString();
-                txtGameOneAwayTeamPointsLost.Text = homeTeamScore.ToString();
-                txtGameOneHomeTeamPointsLost.Text = awayTeamScore.ToString();
-            }else if(controlName == "Two")
-            {
-                txtGameTwoHeading.Text = heading;
-                txtGameTwoDescription.Text = game.description;
-                txtGameTwoTotalPointsScored.Text = totalPointsScored.ToString();
-                txtGameTwoAwayTeamPointsLost.Text = homeTeamScore.ToString();
-                txtGameTwoHomeTeamPointsLost.Text = awayTeamScore.ToString();
-            }
-            else if(controlName == "Three")
-            {
-                txtGameThreeHeading.Text = heading;
-                txtGameThreeDescription.Text = game.description;
-                txtGameThreeTotalPointsScored.Text = totalPointsScored.ToString();
-                txtGameThreeAwayTeamPointsLost.Text = homeTeamScore.ToString();
-                txtGameThreeHomeTeamPointsLost.Text = awayTeamScore.ToString();
-            }
-            else if(controlName == "Four")
-            {
-                txtGameFourHeading.Text = heading;
-                txtGameFourDescription.Text = game.description;
-                txtGameFourTotalPointsScored.Text = totalPointsScored.ToString();
-                txtGameFourAwayTeamPointsLost.Text = homeTeamScore.ToString();
-                txtGameFourHomeTeamPointsLost.Text = awayTeamScore.ToString();
-            }
+            // Find labels within our user control
+            var lblGameHeading = (Label)gamePanel.FindControl("lblGameHeading");
+            var lblGameDate = (Label)gamePanel.FindControl("lblGameDate");
+            var lblGameDescription = (Label)gamePanel.FindControl("lblGameDescription");
+            var lblGameTotalPointsScored = (Label)gamePanel.FindControl("lblGameTotalPointsScored");
+            var lblGameHomeTeamPointsLost = (Label)gamePanel.FindControl("lblGameHomeTeamPointslost");
+            var lblGameAwayTeamPointsLost = (Label)gamePanel.FindControl("lblGameAwayTeamPointslost");
+            var lblGameSpectators = (Label)gamePanel.FindControl("lblGameSpectators");
+
+            // Render data into labels
+            lblGameHeading.Text = heading;
+            lblGameDate.Text = gameDate;
+            lblGameDescription.Text = game.description;
+            lblGameTotalPointsScored.Text = totalPointsScored.ToString();
+            lblGameHomeTeamPointsLost.Text = awayTeamScore.ToString();
+            lblGameAwayTeamPointsLost.Text = homeTeamScore.ToString();
+            lblGameSpectators.Text = spectators.ToString();
+
+            // Finally, add game panel to the page
+            GameStats.Controls.Add(gamePanel);
         }
-
+        
         /**
+         * <summary>
          * Gets the most recent games
+         * </summary>
          * 
-         * return {void}
+         * @returns {void}
          */
         private void GetMostRecentGames()
         {
-
-            //set next and prev buttons to hidden
-            NextWeekButton.Enabled = false;
-            LastWeekButton.Enabled = false;
+            LastWeekButton.Enabled = true;
+            NextWeekButton.Enabled = true;
 
             using (var db = new GameTrackerConn())
             {
-                //stores a week before the current date
-                var dateMinusAWeek = DateTime.Now;
-                dateMinusAWeek = dateMinusAWeek.AddDays(-7);
-
                 var games = (from game in db.Games
-                             select game).ToList();
+                             select game).OrderBy(game => game.gameDate).ToList();
 
-                //stores the games we want to display
-                List<Game> gamesToDisplay = new List<Game>();
-                List<Team> teamsToDisplay = new List<Team>();
-                List<Game> gamesToNotDisplay = new List<Game>();
+                // Get the first/last game weeks
+                var firstWeek = games[0].gameDate;
+                var lastWeek = games[games.Count - 1].gameDate;
 
-                //stores the dates in a format c# likes
-                var currentDate = DateTime.Now.AddDays(timeToAddOrSubtract);
-                var endOfWeekDate = dateMinusAWeek.AddDays(timeToAddOrSubtract);
-                
-                //counts the number of games iterated through
-                int counter = 0;
+                // Update currentWeek
+                currentWeek = firstWeek.AddDays(timeToAddOrSubtract);
+
+                // Disable pagination if no more data available
+                if (currentWeek <= firstWeek)
+                {
+                    LastWeekButton.Enabled = false;
+                }
+
+                if (currentWeek.AddDays(7) >= lastWeek)
+                {
+                    NextWeekButton.Enabled = false;
+                }
 
                 //iterates through game data
-                foreach (Game game in games)
+                if (games.Count != 0)
                 {
-                    counter++;
-
-                    //gets associated home team
-                    var teamHome = (from team in db.Teams
-                                    where game.FK_homeTeam == team.Id
-                                    select team).FirstOrDefault();
-
-                    //gets associated away team
-                    var teamAway = (from team in db.Teams
-                                    where game.FK_awayTeam == team.Id
-                                    select team).FirstOrDefault();
-
-                    //checks if games were played in the current week the app is looking at
-                    if (game.gameDate <= currentDate && game.gameDate >= endOfWeekDate)
+                    foreach (Game game in games)
                     {
-                        // Display a game
-                        if (counter == 1)
+                        if (game.gameDate >= currentWeek && game.gameDate < currentWeek.AddDays(7))
                         {
-                            displayGame(game, teamHome, teamAway, "One");
-                        }
-                        else if(counter == 2)
-                        {
-                            displayGame(game, teamHome, teamAway, "Two");
-                        }
-                        else if (counter == 3)
-                        {
-                            displayGame(game, teamHome, teamAway, "Three");
-                        }
-                        else if(counter == 4)
-                        {
-                            displayGame(game, teamHome, teamAway, "Four");
-                        }
-                        
-                    }
-                    else if (game.gameDate > currentDate || game.gameDate < endOfWeekDate)
-                    {
-                        gamesToNotDisplay.Add(game);
-                    }
+                            //gets associated home team
+                            var teamHome = (from team in db.Teams
+                                            where game.FK_homeTeam == team.Id
+                                            select team).FirstOrDefault();
 
-                }
+                            //gets associated away team
+                            var teamAway = (from team in db.Teams
+                                            where game.FK_awayTeam == team.Id
+                                            select team).FirstOrDefault();
 
-                if (gamesToNotDisplay.Count > 0)
-                {
-                    foreach (Game game in gamesToNotDisplay)
-                    {
-                        if (game.gameDate > currentDate)
-                        {
-                            NextWeekButton.Enabled = true;
-                        }
-
-                        if (game.gameDate < endOfWeekDate)
-                        {
-                            LastWeekButton.Enabled = true;
+                            // Render game data
+                            displayGame(game, teamHome, teamAway);
                         }
                     }
                 }
-
-                // Show the first day(date) of the current week
-                lblCurrentWeek.Text = currentDate.ToShortDateString();
+                else
+                {
+                    var lblNoGames = new Label();
+                    lblNoGames.Text = "Sorry, no Games were played this week";
+                    GameStats.Controls.Add(lblNoGames);
+                }
             }
         }
 
         /**
+         * <summary>
          * Handles the operations for adjusting the week todisplay for the previous week button click
+         * </summary>
          * 
-         * return {void}
+         * returns {void}
          */
         protected void LastWeekButton_Click(object sender, EventArgs e)
         {
@@ -182,7 +164,9 @@ namespace GameTracker
         }
 
         /**
+         * <summary>
          * Handles the operations for adjusting the week todisplay for the next week button click
+         * </summary>
          * 
          * return {void}
          */
