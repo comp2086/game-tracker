@@ -12,6 +12,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GameTracker.Models;
+using GameTracker.User_Controls;
 
 namespace GameTracker
 {
@@ -30,34 +31,56 @@ namespace GameTracker
             GetMostRecentGames();
         }
 
-        private void displayGame(Game game, Team homeTeam, Team awayTeam, string controlName)
+        /**
+         * <summary>
+         * This methods renders game info to the screen
+         * </summary>
+         * 
+         * @method displayGame
+         * @param {Game} game
+         * @param {Team} homeTeam
+         * @param {Team} awayTeam
+         * @param {string} controlName
+         * @returns {void}
+         */
+        private void displayGame(Game game, Team homeTeam, Team awayTeam)
         {
-            var lblHeading = (Label)FindControl("txtGame" + controlName + "Heading");
-            var lblDescription = (Label)FindControl("txtGame" + controlName + "Description");
-            var lblTotalPointsScored = (Label)FindControl("txtGame" + controlName + "TotalPointsScored");
-            var lblAwayTeamPointsLost = (Label)FindControl("txtGame" + controlName + "AwayTeamPointsLost");
-            var lblHomeTeamPointsLost = (Label)FindControl("txtGame" + controlName + "HomeTeamPointsLost");
+            // Load custom user control
+            var gamePanel = (GamePanel) LoadControl("~/User_Controls/GamePanel.ascx");
 
+            // Get data from objects
             var homeTeamScore = game.homeTeamScore;
             var awayTeamScore = game.awayTeamScore;
             var heading = homeTeam.name + " " + homeTeamScore + " : " + awayTeamScore + " " + awayTeam.name;
             var totalPointsScored = homeTeamScore + awayTeamScore;
 
-            lblHeading.Text = heading;
-            lblDescription.Text = game.description;
-            lblTotalPointsScored.Text = totalPointsScored.ToString();
-            lblHomeTeamPointsLost.Text = awayTeamScore.ToString();
-            lblAwayTeamPointsLost.Text = homeTeamScore.ToString();
-        }
+            // Find labels within our user control
+            var lblGameHeading = (Label)gamePanel.FindControl("lblGameHeading");
+            var lblGameDescription = (Label)gamePanel.FindControl("lblGameDescription");
+            var lblGameTotalPointsScored = (Label)gamePanel.FindControl("lblGameTotalPointsScored");
+            var lblGameHomeTeamPointsLost = (Label)gamePanel.FindControl("lblGameHomeTeamPointslost");
+            var lblGameAwayTeamPointsLost = (Label)gamePanel.FindControl("lblGameAwayTeamPointslost");
 
+            // Render data into labels
+            lblGameHeading.Text = heading;
+            lblGameDescription.Text = game.description;
+            lblGameTotalPointsScored.Text = totalPointsScored.ToString();
+            lblGameHomeTeamPointsLost.Text = awayTeamScore.ToString();
+            lblGameAwayTeamPointsLost.Text = homeTeamScore.ToString();
+
+            // Finally, add game panel to the page
+            accordion.Controls.Add(gamePanel);
+        }
+        
         /**
+         * <summary>
          * Gets the most recent games
+         * </summary>
          * 
-         * return {void}
+         * @returns {void}
          */
         private void GetMostRecentGames()
         {
-
             //set next and prev buttons to hidden
             NextWeekButton.Enabled = false;
             LastWeekButton.Enabled = false;
@@ -69,20 +92,17 @@ namespace GameTracker
                 dateMinusAWeek = dateMinusAWeek.AddDays(-7);
 
                 var games = (from game in db.Games
-                             select game).ToList();
-
-                //stores the games we want to display
-                List<Game> gamesToDisplay = new List<Game>();
-                List<Team> teamsToDisplay = new List<Team>();
-                List<Game> gamesToNotDisplay = new List<Game>();
+                             select game).OrderBy(game => game.gameDate).ToList();
 
                 //stores the dates in a format c# likes
                 var currentDate = DateTime.Now.AddDays(timeToAddOrSubtract);
                 var endOfWeekDate = dateMinusAWeek.AddDays(timeToAddOrSubtract);
 
                 //iterates through game data
-                foreach (Game game in games)
+                for (int i = 0; i <= 3; i++)
                 {
+                    var game = games[i];
+
                     //gets associated home team
                     var teamHome = (from team in db.Teams
                                     where game.FK_homeTeam == team.Id
@@ -93,33 +113,8 @@ namespace GameTracker
                                     where game.FK_awayTeam == team.Id
                                     select team).FirstOrDefault();
 
-                    //checks if games were played in the current week the app is looking at
-                    if (game.gameDate <= currentDate && game.gameDate >= endOfWeekDate)
-                    {
-                        // Display a game
-                        displayGame(game, teamHome, teamAway, "One");
-                    }
-                    else if (game.gameDate > currentDate || game.gameDate < endOfWeekDate)
-                    {
-                        gamesToNotDisplay.Add(game);
-                    }
-
-                }
-
-                if (gamesToNotDisplay.Count > 0)
-                {
-                    foreach (Game game in gamesToNotDisplay)
-                    {
-                        if (game.gameDate > currentDate)
-                        {
-                            NextWeekButton.Enabled = true;
-                        }
-
-                        if (game.gameDate < endOfWeekDate)
-                        {
-                            LastWeekButton.Enabled = true;
-                        }
-                    }
+                    // Render game data
+                    displayGame(game, teamHome, teamAway);
                 }
 
                 // Show the first day(date) of the current week
@@ -128,9 +123,11 @@ namespace GameTracker
         }
 
         /**
+         * <summary>
          * Handles the operations for adjusting the week todisplay for the previous week button click
+         * </summary>
          * 
-         * return {void}
+         * returns {void}
          */
         protected void LastWeekButton_Click(object sender, EventArgs e)
         {
@@ -139,7 +136,9 @@ namespace GameTracker
         }
 
         /**
+         * <summary>
          * Handles the operations for adjusting the week todisplay for the next week button click
+         * </summary>
          * 
          * return {void}
          */

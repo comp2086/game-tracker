@@ -183,6 +183,7 @@
     <Content Include="Games\TeamDetails.aspx" />
     <Content Include="Users\EditUser.aspx" />
     <Content Include="Users\UserDashboard.aspx" />
+    <Content Include="User_Controls\GamePanel.ascx" />
     <Content Include="User_Controls\Jumbotron.ascx" />
     <Content Include="User_Controls\Navbar.ascx" />
     <Content Include="Scripts\app.js" />
@@ -293,6 +294,13 @@
     </Compile>
     <Compile Include="Users\UserDashboard.aspx.designer.cs">
       <DependentUpon>UserDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\GamePanel.ascx.cs">
+      <DependentUpon>GamePanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Controls\GamePanel.ascx.designer.cs">
+      <DependentUpon>GamePanel.ascx</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">
       <DependentUpon>Jumbotron.ascx</DependentUpon>

@@ -7,45 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameTracker {
+namespace GameTracker.User_Controls {
     
     
-    public partial class Games {
+    public partial class GamePanel {
         
         /// <summary>
-        /// LastWeekButton control.
+        /// lblGameHeading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LastWeekButton;
+        protected global::System.Web.UI.WebControls.Label lblGameHeading;
         
         /// <summary>
-        /// NextWeekButton control.
+        /// lblGameDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NextWeekButton;
+        protected global::System.Web.UI.WebControls.Label lblGameDescription;
         
         /// <summary>
-        /// lblCurrentWeek control.
+        /// lblGameTotalPointsScored control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentWeek;
+        protected global::System.Web.UI.WebControls.Label lblGameTotalPointsScored;
         
         /// <summary>
-        /// accordion control.
+        /// lblGameAwayTeamPointsLost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accordion;
+        protected global::System.Web.UI.WebControls.Label lblGameAwayTeamPointsLost;
+        
+        /// <summary>
+        /// lblGameHomeTeamPointsLost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGameHomeTeamPointsLost;
     }
 }
