@@ -170,6 +170,14 @@ namespace GameTracker
                     // Display an error message
                 }
             }
+
+            //reset txt boxes
+            txtGameName.Text = "";
+            txtGameDescription.Text = "";
+            txtGameDate.Text = "";
+            txtAwayTeamScore.Text = "";
+            txtHomeTeamScore.Text = "";
+            txtNumberOfSpectators.Text = "";
         }
     }
 }
