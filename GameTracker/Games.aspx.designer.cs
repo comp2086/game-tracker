@@ -31,21 +31,12 @@ namespace GameTracker {
         protected global::System.Web.UI.WebControls.Button NextWeekButton;
         
         /// <summary>
-        /// lblCurrentWeek control.
+        /// GameStats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentWeek;
-        
-        /// <summary>
-        /// accordion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accordion;
+        protected global::System.Web.UI.WebControls.PlaceHolder GameStats;
     }
 }

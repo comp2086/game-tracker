@@ -21,12 +21,8 @@
                         <asp:Button runat="server" ID="NextWeekButton" CssClass="btn btn-default btn-lg" Text=">" OnClick="NextWeekButton_Click" />
                     </div>
                 </div>
-                <div class="pull-right">
-                    <asp:Label ID="lblCurrentWeek" runat="server" Text="Label" Font-Bold="True"></asp:Label>
-                </div>
                 <div class="clearfix"></div>
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" runat="server">
-                </div>
+                <asp:PlaceHolder ID="GameStats" runat="server"></asp:PlaceHolder>
             </div>
         </div>
     </div>
